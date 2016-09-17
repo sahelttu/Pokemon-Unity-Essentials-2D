@@ -101,7 +101,7 @@ public class MoveManager : MonoBehaviour {
   }
 
   public static void saveDataFile() {
-    using (Stream stream = File.Open("Assets/Resources/Data/Move", FileMode.Create))
+    using (Stream stream = File.Open("Assets/Resources/Data/Moves", FileMode.Create))
     {
         var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
 
@@ -129,9 +129,8 @@ public class MoveManager : MonoBehaviour {
   }
 
   public static void loadDataFile() {
-    MoveManager.clearList();
     List<Moves> tempMoveList;
-    using (Stream stream = File.Open("Assets/Resources/Data/Move", FileMode.Open))
+    using (Stream stream = File.Open("Assets/Resources/Data/Moves", FileMode.Open))
     {
         var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
         moveList.Clear();

@@ -17,21 +17,20 @@ public class AnimatedTextureExtendedUV : MonoBehaviour
 	private Transform spTransform;
 	public bool isGamePlayer = false;
 
-	private int facing;
+	public int facing;
 	private bool is_walking;
 
 
 	void Start() {
 		sprites = Resources.LoadAll <Sprite> ("Graphics/Characters/"+sheetname);
 
-    spRend = GetComponent<SpriteRenderer>();
-		spTransform = GetComponent<Transform>();
-    names = new string[sprites.Length];
+        spRend = GetComponent<SpriteRenderer>();
+	    spTransform = GetComponent<Transform>();
+        names = new string[sprites.Length];
 
-    for(int i = 0; i < names.Length; i++)
-    {
-       names[i] = sprites[i].name;
-    }
+        for(int i = 0; i < names.Length; i++) {
+           names[i] = sprites[i].name;
+        }
 	}
 
 

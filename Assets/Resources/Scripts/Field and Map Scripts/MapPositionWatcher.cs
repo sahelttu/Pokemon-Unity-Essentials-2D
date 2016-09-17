@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 
 //This class loads as a reference to all "maps"
-//PlayerMovement should call this each time the player takes a step
 //For now, all it does is know when you've made a map change
 
 public class MapPositionWatcher : MonoBehaviour {
@@ -12,6 +11,8 @@ public class MapPositionWatcher : MonoBehaviour {
 
 	List<MapInfo> loadedMaps = new List<MapInfo> ();
 	MapInfo curMap;
+    //top yvalue of maps
+    public float highestYValue;
 
 
 	void Awake () {
@@ -20,13 +21,19 @@ public class MapPositionWatcher : MonoBehaviour {
 			 if (go.activeInHierarchy && go.GetComponent<Tiled2Unity.TiledMap>() != null) {
 				 loadedMaps.Add(new MapInfo(go, go.transform.position.x, go.transform.position.y,
 				 				go.GetComponent<Tiled2Unity.TiledMap>().GetMapWidthInPixelsScaled(), go.GetComponent<Tiled2Unity.TiledMap>().GetMapHeightInPixelsScaled()));
+                if (highestYValue == null) {
+                    highestYValue = go.transform.position.y;
+                } else if (go.transform.position.y < highestYValue) {
+                    highestYValue = go.transform.position.y;
+                }
 			 }
 		 }
 		 updatePosition();
 	}
 
-	// Update is called once per frame
-	public void updatePosition() {
+    //PlayerMovement calls this each time the player takes a step
+    //update to what current map the player is on
+    public void updatePosition() { 
 		foreach (MapInfo map in loadedMaps) {
 			if (gameObject.transform.position.x >= map.getX() && gameObject.transform.position.x < (map.getX() + map.getWidth())) {
 				if (gameObject.transform.position.y <= map.getY() && gameObject.transform.position.y > (map.getY() - map.getHeight())) {
@@ -36,7 +43,6 @@ public class MapPositionWatcher : MonoBehaviour {
 						}
 						curMap = map;
 						curMap.getObjectMap().GetComponent<MetadataSettings>().enabled = true;
-						//Debug.Log(map.getName());
 						break;
 					}
 				}

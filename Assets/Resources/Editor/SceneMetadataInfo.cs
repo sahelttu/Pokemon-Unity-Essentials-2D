@@ -16,6 +16,14 @@ public class SceneMetadataInfo : MonoBehaviour {
       return true;
 		}
 
+}
 
 
+public class CompileXMLFilesEditorScripts : MonoBehaviour {
+
+  [MenuItem("P2D Functions/Compile All XML") ]
+
+  static void CompileAllXML() {
+    CompileXMLFiles.compileAll();
+  }
 }

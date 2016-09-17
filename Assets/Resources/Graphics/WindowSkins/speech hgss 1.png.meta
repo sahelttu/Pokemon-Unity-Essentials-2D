@@ -1,9 +1,10 @@
 fileFormatVersion: 2
 guid: ad660c2fb8cb26e4895a1ad51868d6ae
-timeCreated: 1464236475
+timeCreated: 1472145539
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: speech hgss 1_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -17,7 +18,7 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
@@ -26,8 +27,8 @@ TextureImporter:
   cubemapConvolutionSteps: 8
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
-  maxTextureSize: 2048
+  textureFormat: -3
+  maxTextureSize: 1024
   textureSettings:
     filterMode: 0
     aniso: 16
@@ -37,18 +38,35 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  spriteMode: 1
+  allowsAlphaSplitting: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 6
-  spritePivot: {x: .371031731, y: .55291003}
+  spritePivot: {x: 0.37103173, y: 0.55291003}
   spriteBorder: {x: 22, y: 14, z: 44, w: 14}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 96
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: speech hgss 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 12
+        width: 512
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
   spritePackingTag: 
   userData: 
   assetBundleName: 

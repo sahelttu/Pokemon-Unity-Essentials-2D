@@ -73,4 +73,8 @@ $RECYCLE.BIN/
 
 # Folders
 test_Data
+Assets/Resources/Tilesets
+Assets/Resources/Graphics
+Assets/Resources/Autotiles
+Assets/Resources/Audio
 test.exe

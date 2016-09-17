@@ -6,9 +6,10 @@ public class PlayerMovement : MonoBehaviour {
 	Vector3 pos;
 	Vector3 oldPos;
 	float speed = 1.2f;                   	// Speed of movement
-	float distance = 0.307355f;								//Distance between tiles, don't change this value
+	float distance = 0.307355f;				//Distance between tiles, don't change this value
 	private Rigidbody2D rbody;
 	public AnimatedTextureExtendedUV anim;	//animates the player using the charset
+    private SpriteRenderer spRend;
 
 
 	private float[] movingTimes = {0.0f, 0.0f, 0.0f, 0.0f};
@@ -31,6 +32,7 @@ public class PlayerMovement : MonoBehaviour {
 		oldPos = pos;
 		rbody = GetComponent<Rigidbody2D> ();
 		positionWatcher = GetComponent<MapPositionWatcher>();
+        spRend = GetComponent<SpriteRenderer>();
 
 		//used to choose the movement destination
 		movingVectors = new Vector3[4] {
@@ -119,11 +121,12 @@ public class PlayerMovement : MonoBehaviour {
 			 	anim.setWalking(false);
 			 }
 			 positionWatcher.updatePosition();
-			 oldPos = pos;
+             updatePlayerZPosition();
+             oldPos = pos;
 		 }
 
 		 if (Input.GetKey(KeyCode.Space)) {
-			 UIManager.displayText("This is also a test.  In fact, this is a really long test that will extend to the next line.  Or maybe it won't.");
+			 UIManager.displayText("This is also a test.  In fact, this is a really long testsss that will extend to the next line.  Or maybe it won't.  Yeah, this is a super long sentece, it will probably never end.");
 		 }
 	}
 
@@ -143,6 +146,10 @@ public class PlayerMovement : MonoBehaviour {
 	public void setSpeed(float p_speed) {
 		speed = p_speed;
 	}
+
+    public void updatePlayerZPosition() {
+        spRend.sortingOrder = Mathf.Abs((int)( (gameObject.transform.position.y - positionWatcher.highestYValue) / 0.307385f));
+    }
 
 
 }

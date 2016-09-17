@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEditor;
 using System.Xml;
 using System.IO;
 using System.Text;
@@ -10,6 +11,14 @@ using System;
 
 
 public class CompileXMLFiles : MonoBehaviour {
+
+
+  public static void compileAll() {
+    CompileXMLFiles.compileAbilities();
+    CompileXMLFiles.compileTypes();
+    CompileXMLFiles.compileMoves();
+    CompileXMLFiles.compileItems();
+  }
 
   public static void compileAbilities() {
 
@@ -688,14 +697,17 @@ public class CompileXMLFiles : MonoBehaviour {
               }
             }
           } else {
-
+            if (curMoveEnum.Equals("")) {
+              Debug.Log("Move following " + lastValidMove + "is missing one or more fields.  Move skipped");
+            } else {
+              Debug.Log("Move " + curMoveEnum + "is missing on or more fields.  Move skipped");
+            }
           }
         }
 
-     } catch {
-
+     } catch (Exception e) {
+       Debug.Log(e);
      }
-
 
      //save all data writen to file, the load it back
      if (MoveManager.getNumMoves()>0) {
@@ -708,6 +720,285 @@ public class CompileXMLFiles : MonoBehaviour {
 
     }
   }
+
+  public static void compileItems() {
+
+    //textwriter, for writing to abilityEnum.cs
+    using (TextWriter itemEnumTW = File.CreateText( "Assets/Resources/XML/ItemsEnum.cs"))
+    {
+      //write the basics to the enum file
+      itemEnumTW.WriteLine("using UnityEngine;");
+      itemEnumTW.WriteLine();
+      itemEnumTW.WriteLine("public enum PBItems {");
+
+      string curItemEnum = "";
+      string curItemName = "";
+      string curItemPluralName = "";
+      string curItemBagPocketType = "";
+      int curItemPrice = -1;
+      string curItemDesc = "";
+      string curItemInFieldUseMethod = "";
+      string curItemUsageTypeInField = "";
+      string curItemInBattleUseMethod = "";
+      string curItemUsageTypeInBattle = "";
+      string curItemSpecialType = "";
+      string curItemMachineMove = "";
+
+      bool skipItem = false;
+      string lastValidItem = "";
+
+      //write enum file first, so we can use it for validation of other elements
+      try {
+        XDocument reader = XDocument.Load("Assets/Resources/XML/Items.xml");
+
+        //read each ability
+        foreach (XElement xe in reader.Descendants("Items")) {
+          foreach (XElement childXE in xe.Elements("Item")) {
+            //write previously found item because the last ability found shouldn't have a comma after it
+            if (!curItemEnum.Equals("")) {
+              itemEnumTW.WriteLine("\t{0}\t,",curItemEnum);
+            }
+            curItemEnum = "";
+            if (xe.Element("Item") != null) {
+              curItemEnum = childXE.Element("InternalName").Value;
+              if (!System.Text.RegularExpressions.Regex.IsMatch(curItemEnum, "^[A-Z]*$")) {
+                Debug.Log("Invalid InternalName of "+ curItemEnum +" must be all caps (Example: REPEL), and be all alphabetical characters.  Item skipped.");
+                curItemEnum = "";
+              }
+            }
+          }
+        }
+        //try to ensure (as best as possible) that there are no compilation errors in abilityEnum.cs
+        //so when we fix our Abilities.xml, we can just compile compile it right away
+        if (!curItemEnum.Equals("")) {
+          itemEnumTW.WriteLine("\t{0}\t",curItemEnum);
+        }
+     } catch {
+       if (!curItemEnum.Equals("")) {
+         itemEnumTW.WriteLine("\tBADVALUE\t");
+       }
+     }
+     itemEnumTW.WriteLine("}");
+     itemEnumTW.WriteLine("public class FakeClass : MonoBehaviour {\n\n}");
+     itemEnumTW.Close();
+
+
+      //clear the types list
+      ItemManager.clearList();
+
+
+      try {
+        XDocument reader = XDocument.Load("Assets/Resources/XML/Items.xml");
+
+        //add each type to TypeManager
+        foreach (XElement xe in reader.Descendants("Item")) {
+
+          curItemEnum = "";
+          curItemName = "";
+          curItemPluralName = "";
+          curItemBagPocketType = "";
+          curItemPrice = -1;
+          curItemDesc = "";
+          curItemInFieldUseMethod = "";
+          curItemUsageTypeInField = "";
+          curItemInBattleUseMethod = "";
+          curItemUsageTypeInBattle = "";
+          curItemSpecialType = "";
+          curItemMachineMove = "";
+
+          skipItem = false;
+
+
+          //read each element in the ability (InternalName, Name, and Description in this case)
+          foreach(XElement childXe in xe.Elements()) {
+            switch(childXe.Name.ToString()) {
+              case "InternalName":
+                curItemEnum = childXe.Value;
+                //check validity of the Internal Name
+                //must be uppercase, and no non-alphanumeric characters
+                if (!System.Text.RegularExpressions.Regex.IsMatch(curItemEnum, "^[A-Z]*$")) {
+                  curItemEnum = "";
+                } else {
+                  lastValidItem = curItemEnum;
+                }
+                break;
+              case "Name":
+                curItemName = childXe.Value;
+                break;
+              case "NamePlural":
+                curItemPluralName = childXe.Value;
+                break;
+              case "BagPocket":
+                if (System.Enum.IsDefined(typeof(PBPockets), childXe.Value.ToString())) {
+                  curItemBagPocketType = childXe.Value;
+                } else {
+                  skipItem = true;
+                  Debug.Log("The value " + childXe.Value.ToString() + " is not accepted for BagPocket , it must be all caps, and a type defined in the enum PBPockets");
+                }
+                break;
+              case "Price":
+                int.TryParse(childXe.Value, out curItemPrice);
+                if (curItemPrice<0) {
+                  skipItem = true;
+                  Debug.Log(childXe.Value + "is not an acceptable price for " + curItemEnum  + ", it must be 0 or greater");
+                }
+                break;
+              case "Description":
+                curItemDesc = childXe.Value;
+                break;
+              case "InFieldUseMethod":
+                if (System.Enum.IsDefined(typeof(PBItems), childXe.Value.ToString())) {
+                  curItemInFieldUseMethod = childXe.Value;
+                } else {
+                  skipItem = true;
+                  Debug.Log("The value " + childXe.Value.ToString() + " is not accepted for InFieldUseMethod , it must be all caps, and a type defined in this XML");
+                }
+                break;
+              case "ItemUsageTypeInField":
+                if (System.Enum.IsDefined(typeof(ItemUsageInField), childXe.Value.ToString())) {
+                  curItemUsageTypeInField = childXe.Value;
+                } else {
+                  skipItem = true;
+                  Debug.Log("The value " + childXe.Value.ToString() + " is not accepted for ItemUsageTypeInField , it must be all caps, and a type defined in this XML");
+                }
+                break;
+              case "InBattleUseMethod":
+                if (System.Enum.IsDefined(typeof(PBItems), childXe.Value.ToString())) {
+                  curItemInBattleUseMethod = childXe.Value;
+                } else {
+                  skipItem = true;
+                  Debug.Log("The value " + childXe.Value.ToString() + " is not accepted for InBattleUseMethod , it must be all caps, and a type defined in this XML");
+                }
+                break;
+              case "ItemUsageTypeInBattle":
+                if (System.Enum.IsDefined(typeof(ItemUsageDuringBattle), childXe.Value.ToString())) {
+                  curItemUsageTypeInBattle = childXe.Value;
+                } else {
+                  skipItem = true;
+                  Debug.Log("The value " + childXe.Value.ToString() + " is not accepted for ItemUsageTypeInBattle , it must be all caps, and a type defined in this XML");
+                }
+                break;
+              case "SpecialItemType":
+                if (System.Enum.IsDefined(typeof(ItemSpecialTypes), childXe.Value.ToString())) {
+                  curItemSpecialType = childXe.Value;
+                } else {
+                  skipItem = true;
+                  Debug.Log("The value " + childXe.Value.ToString() + " is not accepted for SpecialItemType , it must be all caps, and a type defined in this XML");
+                }
+                break;
+              case "MachineMove":
+                if (System.Enum.IsDefined(typeof(PBMoves), childXe.Value.ToString())) {
+                  curItemMachineMove = childXe.Value;
+                } else {
+                  skipItem = true;
+                  Debug.Log("The value " + childXe.Value.ToString() + " is not accepted for MachineMove , it must be all caps, and a type defined in this XML");
+                }
+                break;
+              default:
+                skipItem = true;
+                Debug.Log("Invalid elecment " + childXe.Name + " for item " + xe.Value + ".  This will not prevent compilation, but element is not included");
+                break;
+            }
+          }
+          if (!skipItem) {
+            if (!curItemEnum.Equals("")) {
+              //invalidate item if not containing all required elements, inform user of each missing field
+              if (curItemName.Equals("")) {
+                Debug.Log("Item " + curItemEnum + " is missing a 'Name' field.");
+                skipItem = true;
+              }
+              if (curItemPluralName.Equals("")) {
+                Debug.Log("Item " + curItemEnum + " is missing a 'NamePlural' field.");
+                skipItem = true;
+              }
+              if (curItemBagPocketType.Equals("")) {
+                Debug.Log("Item " + curItemEnum + " is missing a 'BagPocket' field.");
+                skipItem = true;
+              } else if ( (curItemBagPocketType.Equals("TM") || curItemBagPocketType.Equals("HM")) && curItemMachineMove.Equals("")) {
+                Debug.Log("Item " + curItemEnum + " is missing a 'MachineMove' field, which is required for all TM & HM items.");
+                skipItem = true;
+              } else {
+                curItemMachineMove = "NONE";
+              }
+              if (curItemPrice<0) {
+                Debug.Log("Move " + curItemEnum + " is missing a 'Price' field.");
+                skipItem = true;
+              }
+              if (curItemDesc.Equals("")) {
+                Debug.Log("Item " + curItemEnum + " is missing a 'Description' field.");
+                skipItem = true;
+              }
+              if (curItemInFieldUseMethod.Equals("")) {
+                Debug.Log("Item " + curItemEnum + " is missing a 'InFieldUseMethod' field.");
+                skipItem = true;
+              }
+              if (curItemUsageTypeInField.Equals("")) {
+                Debug.Log("Item " + curItemEnum + " is missing a 'ItemUsageTypeInField' field.");
+                skipItem = true;
+              }
+              if (curItemInBattleUseMethod.Equals("")) {
+                Debug.Log("Item " + curItemEnum + " is missing a 'InBattleUseMethod' field.");
+                skipItem = true;
+              }
+              if (curItemUsageTypeInBattle.Equals("")) {
+                Debug.Log("Item " + curItemEnum + " is missing a 'ItemUsageTypeInBattle' field.");
+                skipItem = true;
+              }
+              if (curItemSpecialType.Equals("")) {
+                Debug.Log("Item " + curItemEnum + " is missing a 'SpecialItemType' field.");
+                skipItem = true;
+              }
+
+              if (skipItem) {
+                Debug.Log("One or more fields for " + curItemEnum + " are invalid, skipping item.\n\n");
+              } else {
+                //if all required fields are present, add move
+                ItemManager.addItem( (PBItems)Enum.Parse(typeof(PBItems), curItemEnum), curItemName,
+                            curItemPluralName, (PBPockets)Enum.Parse(typeof(PBPockets), curItemBagPocketType),
+                            curItemPrice, curItemDesc, (PBItems)Enum.Parse(typeof(PBItems), curItemInFieldUseMethod),
+                            (ItemUsageInField)Enum.Parse(typeof(ItemUsageInField), curItemUsageTypeInField),
+                            (PBItems)Enum.Parse(typeof(PBItems), curItemInBattleUseMethod),
+                            (ItemUsageDuringBattle)Enum.Parse(typeof(ItemUsageDuringBattle), curItemUsageTypeInBattle),
+                            (ItemSpecialTypes)Enum.Parse(typeof(ItemSpecialTypes), curItemSpecialType),
+                            (PBMoves)Enum.Parse(typeof(PBMoves), curItemMachineMove) );
+              }
+            } else {
+              //print error report to the user to let know of missing InternalName
+              if (curItemName.Equals("")) {
+                Debug.Log("Move following " + lastValidItem + " is missing an 'InternalName' field.  Item skipped");
+              } else {
+                Debug.Log("Item " + curItemName + " is missing an 'InternalName' field.  Item skipped");
+              }
+            }
+          } else {
+            if (curItemEnum.Equals("")) {
+              Debug.Log("Item following " + lastValidItem + " is missing one or more fields.  Item skipped");
+            } else {
+              Debug.Log("Item " + curItemEnum + " is missing on or more fields.  Item skipped");
+            }
+          }
+
+
+        }
+
+     } catch (Exception e) {
+       Debug.Log(e);
+     }
+
+
+     //save all data writen to file, the load it back
+     if (ItemManager.getNumItems()>0) {
+       ItemManager.saveDataFile();
+       ItemManager.loadDataFile();
+       //Debug.Log(ItemManager.getNumItems());
+       ItemManager.printEachItemName();
+     } else {
+       Debug.Log("You have 0 items successfully defined, please check Items.xml to remedy this");
+     }
+
+    }
+  }
+
 
 
 

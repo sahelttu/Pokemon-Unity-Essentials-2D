@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class DisplayText : MonoBehaviour {
 
-	float letterPause = 0.01f;
+	float letterPause = 0.02f;
 	string words = "";
 	private int curChar = 0;
 	private string currentSentence = "";
@@ -24,92 +24,134 @@ public class DisplayText : MonoBehaviour {
 
 		Image[] tempImages = GetComponentsInChildren<Image>(true);
 		foreach (Image image in tempImages) {
-			if (image.name.Equals("Message Base")) {
-				textBG = image;
-				textBG.enabled = true;
-			}
 			if (image.name.Equals("Message Skin")) {
 				textBox = image;
 				textBox.enabled = true;
 			}
-		}
-
-		foreach (Transform child in transform) {
-			if (child.name.Equals("Text")) {
-			 	textObj = child.gameObject;
+			if (image.name.Equals("Message BG")) {
+				textBG = image;
+				textBG.enabled = true;
 			}
 		}
 
-		if (Screen.width==1024)	{
-			textBox.rectTransform.anchoredPosition = new Vector3(-15 , 96 , 0);
-			textBG.rectTransform.anchoredPosition = new Vector3(-11 , 96 , 0);
-			Debug.Log("object message");
-			textObj.GetComponent<RectTransform>().anchoredPosition = new Vector3(-20, 72, 0);
-			textObj.GetComponent<RectTransform>().sizeDelta = new Vector2(945, 96);
-		} else if (Screen.width==512) {
-			textBox.rectTransform.anchoredPosition = new Vector3(-30 , 152 , 0);
-			textBG.rectTransform.anchoredPosition = new Vector3(-26 , 152 , 0);
-			textObj.GetComponent<RectTransform>().anchoredPosition = new Vector3(-45, 120, 0);
-			textObj.GetComponent<RectTransform>().sizeDelta = new Vector2(945, 128);
-		} else if ((Screen.width/(float)Screen.height).Equals(16/9.0f)) {
-			textBox.rectTransform.anchoredPosition = new Vector3(-10 , 82 , 0);
-			textBG.rectTransform.anchoredPosition = new Vector3(-7 , 82 , 0);
-			textObj.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 128, 0);
-			textObj.GetComponent<RectTransform>().sizeDelta = new Vector2(1024, 96);
+		foreach (Transform child in transform) {
+			if (child.name.Equals("Message Text")) {
+			 	textObj = child.gameObject;
+				break;
+			}
 		}
+
+		positionTextBox();
+		InvokeRepeating ("updateText", 0, letterPause);
 	}
 
-	void Update() {
-		if (Input.GetKey(KeyCode.Space) && !isTyping && !finishedTyping) {
-			isTyping = true;
-			InvokeRepeating("TypeText", 0.0f, letterPause);
+	//Positioning is different depending on screen size, reposition when drawn
+	//Only 512x384 and 1024x786 supported
+	void positionTextBox() {
+        textObj.GetComponent<Text>().font.material.mainTexture.filterMode = FilterMode.Point;
+        if (Screen.width == 1024) {
+            textBox.GetComponent<RectTransform>().anchoredPosition = new Vector3( -8, 56, 0);
+            textBG.GetComponent<RectTransform>().anchoredPosition = new Vector3( 14.15f, 70, 0);
+            textObj.GetComponent<RectTransform>().anchoredPosition = new Vector3( 40, 115, 0);
+            textObj.GetComponent<Text>().rectTransform.sizeDelta = new Vector2( 860, 96);
+        } else {
+            textBox.GetComponent<RectTransform>().anchoredPosition = new Vector3(-25, 106, 0);
+
+            textBG.GetComponent<RectTransform>().anchoredPosition = new Vector3(-4, 120, 0);
+
+            textObj.GetComponent<RectTransform>().anchoredPosition = new Vector3(20, 165, 0);
+            textObj.GetComponent<Text>().rectTransform.sizeDelta = new Vector2(445, 96);
+        }
+
+    }
+
+	void updateText() {
+		if (!isTyping && !finishedTyping && !waitingForMoreLines) {
+			TypeText();
 		}
-		if (finishedTyping && Input.GetButton("Enter")) {
-			GUI.Label(new Rect(50, 50, 200, 50), "");
+        if (waitingForMoreLines && Input.GetButton("Enter")) {
+            waitingForMoreLines = false;
+            currentSentence = "";
+            TypeText();
+        } else if (finishedTyping && Input.GetButton("Enter")) {
 			textBox.enabled = false;
 			textBG.enabled = false;
+            displayText.text = "";
+            displayText.enabled = false;
+			CancelInvoke ("updateText");
 			Destroy(this);
 		}
 	}
 
 	public void SetText(string newText)
 	{
-			displayText = GetComponentInChildren<Text>();
-			if (FontManager.hasFont("Power Green")) {
-				displayText.font = FontManager.getFont("Power Green");
-			}
-			if (Screen.width==1024)	{
-				displayText.supportRichText = true;
-				displayText.fontSize = 25;
-				displayText.horizontalOverflow = HorizontalWrapMode.Wrap;
-				displayText.verticalOverflow = VerticalWrapMode.Truncate;
-				displayText.lineSpacing = 2;
-			} else if (Screen.width==512) {
-				displayText.supportRichText = true;
-				displayText.fontSize = 35;
-				displayText.horizontalOverflow = HorizontalWrapMode.Wrap;
-				displayText.verticalOverflow = VerticalWrapMode.Truncate;
-				displayText.lineSpacing = 1.75f;
-			} else if ((Screen.width/(float)Screen.height).Equals(16/9.0f)) {
-				displayText.supportRichText = true;
-				displayText.fontSize = 42;
-				displayText.horizontalOverflow = HorizontalWrapMode.Wrap;
-				displayText.verticalOverflow = VerticalWrapMode.Truncate;
-				displayText.lineSpacing = 2;
-			}
-			words = newText;
+        displayText = GetComponentInChildren<Text>();
+		displayText.enabled = true;
+		if (FontManager.hasFont("Power Green")) {
+			displayText.font = FontManager.getFont("Power Green");
+		}
+		words = newText;
+
+
 	}
 
+	private bool onNewWord = true;
+	private string curLine = "";
+    private int numLines = 1;
+    private bool waitingForMoreLines = false;
+
 	void TypeText() {
-			char[] tempWords = words.ToCharArray();
-			currentSentence+= tempWords[curChar];
-			curChar++;
-			if (curChar>=tempWords.Length) {
-				isTyping = false;
-				curChar = 0;
-				finishedTyping = true;
-				CancelInvoke("TypeText");
+		char[] tempWords = words.ToCharArray();
+
+
+		string tempLine = curLine;
+		int tempChar = curChar;
+		bool newLine = false;
+
+		if (onNewWord) {
+			while (tempChar<tempWords.Length && tempWords [tempChar] != ' ') {
+
+                if (displayText.rectTransform.sizeDelta.x > displayText.cachedTextGeneratorForLayout.GetPreferredWidth (tempLine, displayText.GetGenerationSettings (displayText.GetComponent<RectTransform> ().rect.size))) {             
+					tempLine += tempWords [tempChar];
+					tempChar++;
+				} else {
+					newLine = true;
+					break;
+				}
 			}
+			onNewWord = false;
+		}
+
+
+		if (newLine) {
+            if (numLines > 1) {
+                numLines = 1;
+                curLine = "";
+                waitingForMoreLines = true;
+                return;
+            } else {
+                currentSentence += '\n';
+                curLine = "";
+                numLines += 1;
+            }
+        }
+
+
+		currentSentence+= tempWords[curChar];
+		curLine += tempWords [curChar];
+		if (tempWords [curChar] == ' ') {
+			onNewWord = true;
+		}
+		curChar++;
+
+
+
+		if (curChar>=tempWords.Length) {
+			isTyping = false;
+			curChar = 0;
+			finishedTyping = true;
+		}
+
 	}
 
 
