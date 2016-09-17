@@ -73,8 +73,9 @@ $RECYCLE.BIN/
 
 # Folders
 test_Data
-Assets/Resources/Tilesets
-Assets/Resources/Graphics
-Assets/Resources/Autotiles
-Assets/Resources/Audio
+Assets/Resources/Tilesets/
+Assets/Resources/Animations/
+Assets/Resources/Graphics/
+Assets/Resources/Autotiles/
+Assets/Resources/Audio/
 test.exe
