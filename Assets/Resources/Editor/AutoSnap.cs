@@ -3,10 +3,12 @@ using UnityEngine;
 
  public class AutoSnap : EditorWindow
  {
-	 private Vector3 prevPosition;
+     const float SNAPVALUE = 0.307385f;
+
+     private Vector3 prevPosition;
 	 private bool doSnap = true;
-	 private float snapValueX = 0.307385f;
-	 private float snapValueY = 0.307385f;
+     private float snapValueX = SNAPVALUE;
+	 private float snapValueY = SNAPVALUE;
 	 private float snapValueZ = 1.0f;
 
 	 [MenuItem( "Edit/Auto Snap %_l" )]

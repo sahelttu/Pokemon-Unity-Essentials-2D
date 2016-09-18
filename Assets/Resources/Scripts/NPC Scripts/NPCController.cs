@@ -21,14 +21,6 @@ public class NPCController : MonoBehaviour {
 		return facing;
 	}
 
-	public bool getWalking() {
-		return is_walking;
-	}
-
-	public void setWalking(bool p_is_walking) {
-		is_walking = p_is_walking;
-	}
-
 	public void setFacing(int p_direction) {
 		facing = p_direction;
 	}
