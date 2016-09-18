@@ -37,12 +37,13 @@ Subject to likely change the way things are handled
   - [ ] Priority
     - [x] Assign different groups of tiles to different layers
     - [ ] Allow the player (and events) to switch between layers (priority may depend on what 'level' of terrain the player is on, like climbing up stairs would then rend the player above certain tiles)
+    - [x] Player automatically changes their priority sub-layer when they move 
     - [ ] Events automatically change their priority sub-layer when they move 
   
   - [ ] Day Night Shader (works, but needs better selection of shades)
 
 * Audio
-  - [ ] General Audio functions (play/switch BGM, BGS, SE, and Cries) [need to rework the way they're stored, breaks in compiled version]
+  - [x] General Audio functions (play/switch BGM, BGS, SE, and Cries)
   - [ ] Fade in/out
   - [ ] Remember where left of and resume (when return from battle or whatever)
 
@@ -50,7 +51,7 @@ Subject to likely change the way things are handled
   - [x] Snap movement (Ctrl+L to open the AutoSnap panel.  Use this to align the player and any events along the grid, and move them along it)
   - [x] Metadata attatches to each "Map" in the Scene
     - [x] Indoor/Outdoor
-    - [ ] BGM (curently fails to change upon map change, but this might be an audio issue)
+    - [x] BGM
     - [ ] Allow Bike
     - [ ] Bike Only
     - [ ]  Encounters (a "map" will have it's own encounters, but individual tile layers will also have encounters that can override the maps, if desired)
@@ -62,8 +63,8 @@ Subject to likely change the way things are handled
 * Compiler(XML files, enums mentioned aren't compiled, but compilers will rely on them)
   - [x] Types
   - [x] Abilities (haven't added all abilities, but compiler works)
-  - [ ] Items
-  - [ ] Moves
+  - [x] Items
+  - [x] Moves
   - [ ] Pokemon 
     - [ ] Evolution Types (enum)
     - [ ] Colors (enum)
@@ -83,7 +84,7 @@ Subject to likely change the way things are handled
 * UI Stuff
   - [ ] Display Text Boxes (needs to be redone to support any screen size)
     - [x] Display letter by letter
-    - [ ] Pause when out of room, then move to next lines
+    - [x] Pause when out of room, then move to next lines
     - [ ] Support easy text formatting
       - [ ] Color
       - [ ] Bold/italics
