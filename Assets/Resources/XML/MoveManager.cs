@@ -6,11 +6,11 @@ using System.IO;
 
 [System.Serializable]
 public struct Moves {
-  public PBMoves internalName;
+  public string internalName;
   public string name;
-  public PBMoves moveEffectType;
+  public string moveEffectType;
   public int baseDamage;
-  public PBTypes moveType;
+  public string moveType;
   public MoveDamageCategory moveCategory;
   public int moveAccuracy;
   public int basePP;
@@ -33,7 +33,7 @@ public struct Moves {
   public bool bombBasedMove;
   public string moveDesc;
 
-  public Moves(PBMoves p_internalName, string p_name, PBMoves p_moveEffectType, int p_baseDamage, PBTypes p_moveType, MoveDamageCategory p_moveCategory,
+  public Moves(string p_internalName, string p_name, string p_moveEffectType, int p_baseDamage, string p_moveType, MoveDamageCategory p_moveCategory,
               int p_moveAccuracy, int p_basePP, int p_additionalEffectChance, MoveTargetType p_moveTargetType, int p_priority, bool p_makesContact,
               bool p_blockedByProtect, bool p_blockedByMagicBounce, bool p_canBeSnatched, bool p_canBeCopied, bool p_affectedByKingsRock,
               bool p_thawsUser, bool p_highCritChance, bool p_bitingMove, bool p_punchingMove, bool p_soundBasedMove, bool p_powderBasedMove,
@@ -74,7 +74,7 @@ public class MoveManager : MonoBehaviour {
   public static List<Moves> moveList = new List<Moves>();
 
 
-  public static void addMove(PBMoves p_internalName, string p_name, PBMoves p_moveEffectType, int p_baseDamage, PBTypes p_moveType, MoveDamageCategory p_moveCategory,
+  public static void addMove(string p_internalName, string p_name, string p_moveEffectType, int p_baseDamage, string p_moveType, MoveDamageCategory p_moveCategory,
               int p_moveAccuracy, int p_basePP, int p_additionalEffectChance, MoveTargetType p_moveTargetType, int p_priority, bool p_makesContact,
               bool p_blockedByProtect, bool p_blockedByMagicBounce, bool p_canBeSnatched, bool p_canBeCopied, bool p_affectedByKingsRock,
               bool p_thawsUser, bool p_highCritChance, bool p_bitingMove, bool p_punchingMove, bool p_soundBasedMove, bool p_powderBasedMove,

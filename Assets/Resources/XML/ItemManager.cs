@@ -7,24 +7,24 @@ using System.IO;
 
 [System.Serializable]
 public struct Item {
-  public PBItems itemEnum;
+  public string itemEnum;
   public string itemName;
   public string itemPluralName;
   public PBPockets itemBagPocketType;
   public int itemPrice;
   public string itemDesc;
-  public PBItems itemInFieldUseMethod;
+  public string itemInFieldUseMethod;
   public ItemUsageInField itemUsageTypeInField;
-  public PBItems itemInBattleUseMethod;
+  public string itemInBattleUseMethod;
   public ItemUsageDuringBattle itemUsageTypeInBattle;
   public ItemSpecialTypes itemSpecialType;
-  public PBMoves itemMachineMove;
+  public string itemMachineMove;
 
-  public Item(PBItems p_internalName, string p_name, string p_pluralName, PBPockets p_curItemBagPocketType,
-              int p_curItemPrice, string p_curItemDesc, PBItems p_curItemInFieldUseMethod,
-              ItemUsageInField p_curItemUsageTypeInField, PBItems p_curItemInBattleUseMethod,
+  public Item(string p_internalName, string p_name, string p_pluralName, PBPockets p_curItemBagPocketType,
+              int p_curItemPrice, string p_curItemDesc, string p_curItemInFieldUseMethod,
+              ItemUsageInField p_curItemUsageTypeInField, string p_curItemInBattleUseMethod,
               ItemUsageDuringBattle p_curItemUsageTypeInBattle, ItemSpecialTypes p_curItemSpecialType,
-              PBMoves p_curItemMachineMove) {
+              string p_curItemMachineMove) {
     itemEnum = p_internalName;
     itemName = p_name;
     itemPluralName = p_pluralName;
@@ -47,11 +47,11 @@ public class ItemManager : MonoBehaviour {
   public static List<Item> itemList = new List<Item>();
 
 
-  public static void addItem(PBItems p_internalName, string p_name, string p_pluralName, PBPockets p_curItemBagPocketType,
-              int p_curItemPrice, string p_curItemDesc, PBItems p_curItemInFieldUseMethod,
-              ItemUsageInField p_curItemUsageTypeInField, PBItems p_curItemInBattleUseMethod,
+  public static void addItem(string p_internalName, string p_name, string p_pluralName, PBPockets p_curItemBagPocketType,
+              int p_curItemPrice, string p_curItemDesc, string p_curItemInFieldUseMethod,
+              ItemUsageInField p_curItemUsageTypeInField, string p_curItemInBattleUseMethod,
               ItemUsageDuringBattle p_curItemUsageTypeInBattle, ItemSpecialTypes p_curItemSpecialType,
-              PBMoves p_curItemMachineMove)  {
+              string p_curItemMachineMove)  {
     itemList.Add(new Item(p_internalName, p_name, p_pluralName, p_curItemBagPocketType,
                 p_curItemPrice, p_curItemDesc, p_curItemInFieldUseMethod,
                 p_curItemUsageTypeInField, p_curItemInBattleUseMethod,

@@ -13,6 +13,7 @@ public class MapPositionWatcher : MonoBehaviour {
 	MapInfo curMap;
     //top yvalue of maps
     public float highestYValue;
+    private bool hasSetHighestValue = false;
 
 
 	void Awake () {
@@ -21,9 +22,10 @@ public class MapPositionWatcher : MonoBehaviour {
 			 if (go.activeInHierarchy && go.GetComponent<Tiled2Unity.TiledMap>() != null) {
 				 loadedMaps.Add(new MapInfo(go, go.transform.position.x, go.transform.position.y,
 				 				go.GetComponent<Tiled2Unity.TiledMap>().GetMapWidthInPixelsScaled(), go.GetComponent<Tiled2Unity.TiledMap>().GetMapHeightInPixelsScaled()));
-                if (highestYValue == null) {
+                if (!hasSetHighestValue) {
                     highestYValue = go.transform.position.y;
-                } else if (go.transform.position.y < highestYValue) {
+                    hasSetHighestValue = true;
+                } else if (go.transform.position.y < highestYValue) { //a lower y-value will be higher on an X-Y plane
                     highestYValue = go.transform.position.y;
                 }
 			 }

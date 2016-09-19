@@ -12,9 +12,6 @@ public class DisplayText : MonoBehaviour {
 	private bool isTyping = false;
 	private bool finishedTyping = false;
 
-	private GUIStyle guiStyle = new GUIStyle();
-
-
 	private Image textBox;
 	private Image textBG;
 	private Text displayText;

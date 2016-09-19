@@ -45,8 +45,9 @@ public class FadeImageInOut : MonoBehaviour {
 
 	void Update() {
 		if (Input.GetKey(KeyCode.Space)) {
-			Application.LoadLevel("MainMap");
-		}
+			UnityEngine.SceneManagement.SceneManager.LoadScene("MainMap");
+
+        }
 	}
 
 }
