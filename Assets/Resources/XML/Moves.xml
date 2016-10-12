@@ -1,5 +1,6 @@
-<Moves>
+<Moves xmlns="http://tempuri.org/XMLSchema.xsd:Moves">
 
+  <!--Megahorn-->
   <Move>
     <InternalName>MEGAHORN</InternalName>
     <Name>Megahorn</Name>
@@ -31,6 +32,67 @@
     <MoveDescription>Using its tough and impressive horn, the user rams into the target with no letup.</MoveDescription>
   </Move>
 
-  
+  <!--Attack Order-->
+  <Move>
+    <InternalName>ATTACKORDER</InternalName>
+    <Name>Attack Order</Name>
+    <MoveEffectType>NONE</MoveEffectType>
+    <BaseDamage>90</BaseDamage>
+    <MoveType>BUG</MoveType>
+    <MoveCategory>Physical</MoveCategory>
+    <Accuracy>100</Accuracy>
+    <BasePP>15</BasePP>
+    <AdditionalEffectChance>0</AdditionalEffectChance>
+    <TargetType>SINGLESELECTEDOPPONENT</TargetType>
+    <Priority>0</Priority>
+    <Flags>
+      <MakesContact>false</MakesContact>
+      <BlockedByProtect>true</BlockedByProtect>
+      <BlockedByMagicBounce>false</BlockedByMagicBounce>
+      <CanBeSnatched>false</CanBeSnatched>
+      <CanBeCopied>true</CanBeCopied>
+      <AffectedByKingsRock>true</AffectedByKingsRock>
+      <ThawsUser>false</ThawsUser>
+      <HighCritChance>true</HighCritChance>
+      <BitingMove>false</BitingMove>
+      <PunchingMove>false</PunchingMove>
+      <SoundBasedMove>false</SoundBasedMove>
+      <PowderBasedMove>false</PowderBasedMove>
+      <PulseBasedMove>false</PulseBasedMove>
+      <BombBasedMove>false</BombBasedMove>
+    </Flags>
+    <MoveDescription>The user calls out its underlings to pummel the target. Critical hits land more easily.</MoveDescription>
+  </Move>
 
+  <!--Bug Buzz-->
+  <Move>
+    <InternalName>BUGBUZZ</InternalName>
+    <Name>Bug Buzz</Name>
+    <MoveEffectType>NONE</MoveEffectType>
+    <BaseDamage>90</BaseDamage>
+    <MoveType>BUG</MoveType>
+    <MoveCategory>Special</MoveCategory>
+    <Accuracy>100</Accuracy>
+    <BasePP>10</BasePP>
+    <AdditionalEffectChance>10</AdditionalEffectChance>
+    <TargetType>SINGLESELECTEDOPPONENT</TargetType>
+    <Priority>0</Priority>
+    <Flags>
+      <MakesContact>false</MakesContact>
+      <BlockedByProtect>true</BlockedByProtect>
+      <BlockedByMagicBounce>false</BlockedByMagicBounce>
+      <CanBeSnatched>false</CanBeSnatched>
+      <CanBeCopied>true</CanBeCopied>
+      <AffectedByKingsRock>true</AffectedByKingsRock>
+      <ThawsUser>false</ThawsUser>
+      <HighCritChance>false</HighCritChance>
+      <BitingMove>false</BitingMove>
+      <PunchingMove>false</PunchingMove>
+      <SoundBasedMove>true</SoundBasedMove>
+      <PowderBasedMove>false</PowderBasedMove>
+      <PulseBasedMove>false</PulseBasedMove>
+      <BombBasedMove>false</BombBasedMove>
+    </Flags>
+    <MoveDescription>The user vibrates its wings to generate a damaging sound wave. It may also lower the target's Sp. Def stat.</MoveDescription>
+  </Move>
 </Moves>

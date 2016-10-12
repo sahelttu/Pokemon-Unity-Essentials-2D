@@ -51,5 +51,13 @@ public class MetadataSettings : MonoBehaviour {
 		}
 	}
 
+    public void Copy(MetadataSettings metadataToCopy) {
+        mapName = metadataToCopy.mapName;
+        indoorMap = metadataToCopy.indoorMap;
+        bgmSource = metadataToCopy.bgmSource;
+        volume = metadataToCopy.volume;
+        pitch = metadataToCopy.pitch;
+    }
+
 
 }

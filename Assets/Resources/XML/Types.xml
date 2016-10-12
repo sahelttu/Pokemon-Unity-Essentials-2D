@@ -1,4 +1,4 @@
-<Types>
+<Types xmlns="http://tempuri.org/XMLSchema.xsd:Types">
 
   <Type>
     <InternalName>NORMAL</InternalName>

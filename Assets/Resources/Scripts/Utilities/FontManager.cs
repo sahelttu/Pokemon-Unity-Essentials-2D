@@ -35,7 +35,10 @@ public class FontManager : MonoBehaviour {
 	}
 
 	public static Font getFont(string fontName) {
-		return Resources.Load("Fonts/" + fonts[fontNames.IndexOf(fontName)]) as Font;
+        if (fontNames.Count == 0) {
+            startFontManager();
+        }
+        return Resources.Load("Fonts/" + fonts[fontNames.IndexOf(fontName)]) as Font;
 	}
 
 

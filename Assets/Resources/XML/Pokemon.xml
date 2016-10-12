@@ -1,0 +1,133 @@
+<Pokémon>
+
+  <!--Bulbasaur-->
+  <Species>
+    <InternalName>BULBASAUR</InternalName>
+    <Name>Bulbasaur</Name>
+    <Type1>GRASS</Type1>
+    <Type2>POISON</Type2>
+    <BaseStats>
+      <HP>45</HP>
+      <ATK>49</ATK>
+      <DEF>49</DEF>
+      <SPATK>65</SPATK>
+      <SPDEF>65</SPDEF>
+      <SPEED>45</SPEED>
+    </BaseStats>
+    <GenderRate>FemaleOneEighth</GenderRate>
+    <GrowthRate>Parabolic</GrowthRate>
+    <BaseEXP>64</BaseEXP>
+    <EffortPoints>
+      <HP>0</HP>
+      <ATK>0</ATK>
+      <DEF>0</DEF>
+      <SPATK>1</SPATK>
+      <SPDEF>0</SPDEF>
+      <SPEED>0</SPEED>
+    </EffortPoints>
+    <Rareness>45</Rareness>
+    <BaseHappiness>70</BaseHappiness>
+    <MovesLearnedByLevelUp>
+      <Move>TACKLE,1</Move>
+      <Move>GROWL,3</Move>
+      <Move>LEECHSEED,7</Move>
+      <Move>VINEWHIP,9</Move>
+      <Move>POISONPOWDER,13</Move>
+      <Move>SLEEPPOWDER,13</Move>
+      <Move>TAKEDOWN,15</Move>
+      <Move>RAZORLEAF,19</Move>
+      <Move>SWEETSCENT,21</Move>
+      <Move>GROWTH,25</Move>
+      <Move>DOUBLEEDGE,27</Move>
+      <Move>WORRYSEED,31</Move>
+      <Move>SYNTHESIS,33</Move>
+      <Move>SEEDBOMB,37</Move>
+    </MovesLearnedByLevelUp>
+    <MovesLearnedByTM>
+      <Move>TOXIC</Move>
+      <Move>VENOSHOCK</Move>
+      <Move>HIDDENPOWER</Move>
+      <Move>SUNNYDAY</Move>
+      <Move>LIGHTSCREEN</Move>
+      <Move>PROTECT</Move>
+      <Move>SAFEGUARD</Move>
+      <Move>FRUSTRATION</Move>
+      <Move>SOLARBEAM</Move>
+      <Move>RETURN</Move>
+      <Move>DOUBLETEAM</Move>
+      <Move>SLUDGEBOMB</Move>
+      <Move>FACADE</Move>
+      <Move>REST</Move>
+      <Move>ATTRACT</Move>
+      <Move>ROUND</Move>
+      <Move>ECHOEDVOICE</Move>
+      <Move>ENERGYBALL</Move>
+      <Move>FLASH</Move>
+      <Move>SWORDSDANCE</Move>
+      <Move>GRASSKNOT</Move>
+      <Move>SWAGGER</Move>
+      <Move>SLEEPTALK</Move>
+      <Move>SUBSTITUTE</Move>
+      <Move>SECRETPOWER</Move>
+      <Move>NATUREPOWER</Move>
+      <Move>CONFIDE</Move>
+    </MovesLearnedByTM>
+    <MovesLearnedByHM>
+      <Move>CUT</Move>
+      <Move>STRENGTH</Move>
+      <Move>ROCKSMASH</Move>
+    </MovesLearnedByHM>
+    <MovesLearnedByTutor>
+      <Move>BIND</Move>
+      <Move>GIGADRAIN</Move>
+      <Move>GRASSPLEDGE</Move>
+      <Move>KNOCKOFF</Move>
+      <Move>SEEDBOMB</Move>
+      <Move>SNORE</Move>
+      <Move>SYNTHESIS</Move>
+      <Move>WORRYSEED</Move>
+    </MovesLearnedByTutor>
+    <MovesLearnedByBreeding>
+      <Move>AMNESIA</Move>
+      <Move>CHARM</Move>
+      <Move>CURSE</Move>
+      <Move>ENDURE</Move>
+      <Move>GIGADRAIN</Move>
+      <Move>GRASSWHISTLE</Move>
+      <Move>INGRAIN</Move>
+      <Move>LEAFSTORM</Move>
+      <Move>MAGICALLEAF</Move>
+      <Move>NATUREPOWER</Move>
+      <Move>PETALDANCE</Move>
+      <Move>POWERWHIP</Move>
+      <Move>SKULLBASH</Move>
+      <Move>SLUDGE</Move>
+    </MovesLearnedByBreeding>
+    <EggType1>MONSTER</EggType1>
+    <EggType2>GRASS</EggType2>
+    <StepsToHatch>5355</StepsToHatch>
+    <Height>0.7</Height> <!--In Meters-->
+    <Weight>6.9</Weight> <!--In Kilograms-->
+    <Color>Green</Color> <!--References to Enums will be capitalized, so type in whatever way is easier for you to read-->
+    <Kind>Seed</Kind>
+    <DexEntry>Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger.</DexEntry>
+    <NaturalAbilities>
+      <Ability>OVERGROW</Ability>
+    </NaturalAbilities>
+    <HiddenAbilities>
+      <Ability>CHLOROPHYLL</Ability>
+    </HiddenAbilities>
+    <DexNumbers>
+      <DexNumber dexType ="JohtoDex">231</DexNumber>
+    </DexNumbers>
+    <BattleEnemyYPos>25</BattleEnemyYPos>
+    <Evolutions>
+      <Evolution>
+        <EvoType>LEVEL</EvoType> <!--Type of evolution requirement, must be defined in the enum PokemonEvolutionTypes (found in SpeciesInfoEnums.cs)-->
+        <EvolveInto>IVYSAUR</EvolveInto> <!--Pokémon this will evolve into-->
+        <EvoRequirement>16</EvoRequirement> <!--The requirement to be met, in this case the Pokémon's level must be at least 16-->
+      </Evolution>
+    </Evolutions>
+  </Species> 
+  
+</Pokémon>

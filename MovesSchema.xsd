@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://tempuri.org/XMLSchema.xsd:Moves" elementFormDefault="qualified"
+    xmlns="http://tempuri.org/XMLSchema.xsd" xmlns:mstns="http://tempuri.org/XMLSchema.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:element name="Moves">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded">
+
+        <xs:element name="Move">
+          <xs:complexType>
+            <xs:choice maxOccurs="unbounded">
+              <xs:element name="InternalName" type="xs:string" maxOccurs="1" minOccurs="1"/>
+              <xs:element name="Name" type="xs:string" maxOccurs="1" minOccurs="1"/>
+              <xs:element name="MoveEffectType" type="xs:string" maxOccurs="1" minOccurs="1"/>
+              <xs:element name="BaseDamage" type="xs:int" maxOccurs="1" minOccurs="1"/>
+              <xs:element name="MoveType" type="xs:string" maxOccurs="1" minOccurs="1"/>
+              <xs:element name="MoveCategory" type="xs:string" maxOccurs="1" minOccurs="1"/>
+              <xs:element name="Accuracy" type="xs:int" maxOccurs="1" minOccurs="1"/>
+              <xs:element name="BasePP" type="xs:int" maxOccurs="1" minOccurs="1"/>
+              <xs:element name="AdditionalEffectChance" type="xs:int" maxOccurs="1" minOccurs="1"/>
+              <xs:element name="TargetType" type="xs:string" maxOccurs="1" minOccurs="1"/>
+              <xs:element name="Priority" type="xs:int" maxOccurs="1" minOccurs="1"/>
+              
+              <xs:element name="Flags">
+                <xs:complexType>
+                  <xs:choice maxOccurs="unbounded">
+                    <xs:element name="MakesContact" type="xs:boolean" maxOccurs="1" minOccurs="0"/>
+                    <xs:element name="BlockedByProtect" type="xs:boolean" maxOccurs="1" minOccurs="0"/>
+                    <xs:element name="BlockedByMagicBounce" type="xs:boolean" maxOccurs="1" minOccurs="0"/>
+                    <xs:element name="CanBeSnatched" type="xs:boolean" maxOccurs="1" minOccurs="0"/>
+                    <xs:element name="CanBeCopied" type="xs:boolean" maxOccurs="1" minOccurs="0"/>
+                    <xs:element name="AffectedByKingsRock" type="xs:boolean" maxOccurs="1" minOccurs="0"/>
+                    <xs:element name="ThawsUser" type="xs:boolean" maxOccurs="1" minOccurs="0"/>
+                    <xs:element name="HighCritChance" type="xs:boolean" maxOccurs="1" minOccurs="0"/>
+                    <xs:element name="BitingMove" type="xs:boolean" maxOccurs="1" minOccurs="0"/>
+                    <xs:element name="PunchingMove" type="xs:boolean" maxOccurs="1" minOccurs="0"/>
+                    <xs:element name="SoundBasedMove" type="xs:boolean" maxOccurs="1" minOccurs="0"/>
+                    <xs:element name="PowderBasedMove" type="xs:boolean" maxOccurs="1" minOccurs="0"/>
+                    <xs:element name="PulseBasedMove" type="xs:boolean" maxOccurs="1" minOccurs="0"/>
+                    <xs:element name="BombBasedMove" type="xs:boolean" maxOccurs="1" minOccurs="0"/>
+                  </xs:choice>
+                </xs:complexType>
+              </xs:element>
+              
+              <xs:element name="MoveDescription" type="xs:string" maxOccurs="1" minOccurs="1"/>
+            </xs:choice>
+          </xs:complexType>
+        </xs:element>
+
+
+
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

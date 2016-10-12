@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-
 public class AnimatedTextureExtendedUV : MonoBehaviour
 {
-	public int colCount = 4;
+	private int colCount = 4;
 	private string sheetname;
     private string oldSheetname;
     private Sprite[] sprites;

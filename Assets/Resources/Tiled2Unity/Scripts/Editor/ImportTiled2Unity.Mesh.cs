@@ -48,8 +48,6 @@ namespace Tiled2Unity
             string prefabName = xmlPrefab.Attribute("name").Value;
             float prefabScale = ImportUtils.GetAttributeAsFloat(xmlPrefab, "scale", 1.0f);
             GameObject tempPrefab = new GameObject(prefabName);
-            HandleTiledAttributes(tempPrefab, xmlPrefab);
-            HandleCustomProperties(tempPrefab, xmlPrefab, customImporters);
 
             // Part 2: Build out the prefab
             // We may have an 'isTrigger' attribute that we want our children to obey
@@ -69,6 +67,17 @@ namespace Tiled2Unity
             string prefabPath = GetPrefabAssetPath(prefabName, isResource, resourcePath);
             UnityEngine.Object finalPrefab = AssetDatabase.LoadAssetAtPath(prefabPath, typeof(GameObject));
 
+            //Part 5:  Handle properities (uses info regarding whether or not the prefab was already defined)
+            int previousMapId = 0;
+            MetadataSettings previousMetadata = null;
+            if (finalPrefab != null) {
+                TiledMap map = ((GameObject)AssetDatabase.LoadAssetAtPath(prefabPath, typeof(GameObject))).GetComponent<TiledMap>();
+                previousMapId = map.MapID;
+                previousMetadata = ((GameObject)AssetDatabase.LoadAssetAtPath(prefabPath, typeof(GameObject))).GetComponent<MetadataSettings>();
+            }
+            HandleTiledAttributes(tempPrefab, xmlPrefab, previousMapId, previousMetadata);
+            HandleCustomProperties(tempPrefab, xmlPrefab, customImporters);
+            
             if (finalPrefab == null)
             {
                 // The prefab needs to be created
@@ -117,7 +126,6 @@ namespace Tiled2Unity
 
                     // Set the sorting order
                     renderer.sortingOrder = ImportUtils.GetAttributeAsInt(goXml, "sortingOrder", 0);
-                    Debug.Log(name + " " + renderer.sortingLayerName);
                 }
                 else
                 {
@@ -408,7 +416,7 @@ namespace Tiled2Unity
             }
         }
 
-        private void HandleTiledAttributes(GameObject gameObject, XElement goXml)
+        private void HandleTiledAttributes(GameObject gameObject, XElement goXml, int previousMapID, MetadataSettings previousMetadata)
         {
             // Add the TiledMap component
             TiledMap map = gameObject.AddComponent<TiledMap>();
@@ -421,6 +429,15 @@ namespace Tiled2Unity
                 map.ExportScale = ImportUtils.GetAttributeAsFloat(goXml, "exportScale");
                 map.MapWidthInPixels = ImportUtils.GetAttributeAsInt(goXml, "mapWidthInPixels");
                 map.MapHeightInPixels = ImportUtils.GetAttributeAsInt(goXml, "mapHeightInPixels");
+                if (previousMapID == 0) {
+                    map.MapID = IDHandler.getNextMapID(EditorApplication.currentScene);
+                } else {
+                    map.MapID = previousMapID;
+                }
+                map.gameObject.AddComponent<MetadataSettings>();
+                if (previousMetadata != null) {
+                    map.gameObject.GetComponent<MetadataSettings>().Copy(previousMetadata);
+                }
             }
             catch
             {

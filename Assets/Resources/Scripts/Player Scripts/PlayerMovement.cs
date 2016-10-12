@@ -134,9 +134,10 @@ public class PlayerMovement : MonoBehaviour {
             isRunning = false;
         }
 
-		if (Input.GetKey(KeyCode.Space)) {
-		    UIManager.displayText("This is also a test.  In fact, this is a really long testsss that will extend to the next line.  Or maybe it won't.  Yeah, this is a super long sentece, it will probably never end.");
-		}
+		if (Input.GetKeyUp(KeyCode.Space)) {
+            UIManager.showPauseMenu();
+            //UIManager.displayText("This is also a test.  In fact, this is a really long testsss that will extend to the next line.  Or maybe it won't.  Yeah, this is a super long sentece, it will probably never end.");
+        }
 	}
 
 	public void setTransferred(bool hasTransferred, int setDirection) {

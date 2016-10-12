@@ -2,5 +2,7 @@ using UnityEngine;
 
 public enum PBMoves {
 	NONE	,
-	MEGAHORN	
+	MEGAHORN	,
+	ATTACKORDER	,
+	BUGBUZZ	
 }

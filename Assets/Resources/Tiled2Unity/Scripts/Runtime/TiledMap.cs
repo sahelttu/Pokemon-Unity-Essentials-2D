@@ -4,21 +4,24 @@ using System.Linq;
 using System.Text;
 
 using UnityEngine;
+using UnityEditor;
 
 namespace Tiled2Unity
 {
+    [ExecuteInEditMode]
     public class TiledMap : MonoBehaviour
     {
-        public int NumTilesWide = 0;
-        public int NumTilesHigh = 0;
-        public int TileWidth = 0;
-        public int TileHeight = 0;
-        public float ExportScale = 1.0f;
+        [ReadOnly] public int NumTilesWide = 0;
+        [ReadOnly] public int NumTilesHigh = 0;
+        [ReadOnly] public int TileWidth = 0;
+        [ReadOnly] public int TileHeight = 0;
+        [ReadOnly] public float ExportScale = 1.0f;
 
         // Note: Because maps can be isometric and staggered we simply can't multply tile width (or height) by number of tiles wide (or high) to get width (or height)
         // We rely on the exporter to calculate the width and height of the map
-        public int MapWidthInPixels = 0;
-        public int MapHeightInPixels = 0;
+        [ReadOnly] public int MapWidthInPixels = 0;
+        [ReadOnly] public int MapHeightInPixels = 0;
+        [ReadOnly] public int MapID;
 
         public float GetMapWidthInPixelsScaled()
         {
@@ -44,6 +47,13 @@ namespace Tiled2Unity
             Gizmos.DrawLine(topRight, bottomRight);
             Gizmos.DrawLine(bottomRight, bottomLeft);
             Gizmos.DrawLine(bottomLeft, topLeft);
+        }
+
+        public void OnDestroy() {
+            if (Application.isEditor && !EditorApplication.isPlaying) {
+                IDHandler.removeMapID(EditorApplication.currentScene, this.MapID);
+                
+            }
         }
     }
 }

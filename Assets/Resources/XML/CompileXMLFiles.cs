@@ -10,6 +10,18 @@ using System.Security.Cryptography;
 using System;
 
 
+//Don't edit this, struct is used for compiling XML
+public struct EvolutionInfo {
+    public string evoTarget;
+    public string evoType;
+    public string evoRequirement;
+    public EvolutionInfo(string p_evoTarget, string p_evoType, string p_evoRequirement) {
+        evoTarget = p_evoTarget;
+        evoType = p_evoType;
+        evoRequirement = p_evoRequirement;
+    }
+}
+
 public class CompileXMLFiles : MonoBehaviour {
 
     static List<string> abilityNameList = new List<string>();
@@ -53,6 +65,7 @@ public class CompileXMLFiles : MonoBehaviour {
 
             try {
                 XDocument reader = XDocument.Load("Assets/Resources/XML/Abilities.xml");
+                reader.StripNamespace();
 
                 //read each ability
                 foreach (XElement xe in reader.Descendants("Ability")) {
@@ -142,6 +155,7 @@ public class CompileXMLFiles : MonoBehaviour {
             //write enum file first, so we can use it for validation of other elements
             try {
                 XDocument reader = XDocument.Load("Assets/Resources/XML/Types.xml");
+                reader.StripNamespace();
 
                 //read each ability
                 foreach (XElement xe in reader.Descendants("Types")) {
@@ -155,7 +169,7 @@ public class CompileXMLFiles : MonoBehaviour {
                         if (xe.Element("Type") != null) {
                             curTypeEnum = childXE.Element("InternalName").Value;
                             if (!System.Text.RegularExpressions.Regex.IsMatch(curTypeEnum, "^[A-Z]*$")) {
-                                Debug.Log("Invalid InternalName of " + curTypeEnum + " must be all caps (Example: FIRE), and be all alphabetical characters.  Ability skipped.");
+                                Debug.Log("Invalid InternalName of " + curTypeEnum + " must be all caps (Example: FIRE), and be all alphabetical characters.  Type skipped.");
                                 curTypeEnum = "";
                             }
                         }
@@ -182,6 +196,7 @@ public class CompileXMLFiles : MonoBehaviour {
 
             try {
                 XDocument reader = XDocument.Load("Assets/Resources/XML/Types.xml");
+                reader.StripNamespace();
 
                 //add each type to TypeManager
                 foreach (XElement xe in reader.Descendants("Type")) {
@@ -267,7 +282,6 @@ public class CompileXMLFiles : MonoBehaviour {
             if (TypeManager.getNumTypes() > 0) {
                 TypeManager.saveDataFile();
                 TypeManager.loadDataFile();
-                //TypeManager.printEachTypeName();
             } else {
                 Debug.Log("You have 0 types successfully defined, please check Types.xml to remedy this");
             }
@@ -321,6 +335,7 @@ public class CompileXMLFiles : MonoBehaviour {
             //write enum file first, so we can use it for validation of other elements
             try {
                 XDocument reader = XDocument.Load("Assets/Resources/XML/Moves.xml");
+                reader.StripNamespace();
 
                 //read each ability
                 foreach (XElement xe in reader.Descendants("Moves")) {
@@ -363,6 +378,8 @@ public class CompileXMLFiles : MonoBehaviour {
 
             try {
                 XDocument reader = XDocument.Load("Assets/Resources/XML/Moves.xml");
+                reader.StripNamespace();
+
                 //add each type to MoveManager
                 foreach (XElement xe in reader.Descendants("Move")) {
                     curMoveEnum = "";
@@ -414,8 +431,8 @@ public class CompileXMLFiles : MonoBehaviour {
                                 }
                                 break;
                             case "MoveEffectType":
-                                if (moveNameList.Contains(childXe.Value)) {
-                                    curMoveEffectType = childXe.Value;
+                                if (moveNameList.Contains(childXe.Value.ToUpper())) {
+                                    curMoveEffectType = childXe.Value.ToUpper();
                                 } else {
                                     Debug.Log("The value " + childXe.Value + " is not accepted for Weakness , it must be all caps, and a type defined in this XML file");
                                     curMoveEnum = "";
@@ -431,8 +448,8 @@ public class CompileXMLFiles : MonoBehaviour {
                                 }
                                 break;
                             case "MoveType":
-                                if (typeNameList.Contains(childXe.Value)) {
-                                    curMoveType = childXe.Value;
+                                if (typeNameList.Contains(childXe.Value.ToUpper())) {
+                                    curMoveType = childXe.Value.ToUpper();
                                 } else {
                                     Debug.Log("The value " + childXe.Value + " is not accepted for MoveType , it must be all caps, and a type defined in PBTypes");
                                     curMoveEnum = "";
@@ -440,8 +457,8 @@ public class CompileXMLFiles : MonoBehaviour {
                                 }
                                 break;
                             case "MoveCategory":
-                                if (System.Enum.IsDefined(typeof(MoveDamageCategory), childXe.Value)) {
-                                    curMoveCategory = childXe.Value;
+                                if (System.Enum.IsDefined(typeof(MoveDamageCategory), childXe.Value.ToUpper())) {
+                                    curMoveCategory = childXe.Value.ToUpper();
                                 } else {
                                     Debug.Log("The value " + childXe.Value.ToString() + " is not accepted for MoveCategory , it must be all caps, and a type defined in the enum MoveDamageCategory");
                                     curMoveEnum = "";
@@ -473,8 +490,8 @@ public class CompileXMLFiles : MonoBehaviour {
                                 }
                                 break;
                             case "TargetType":
-                                if (System.Enum.IsDefined(typeof(MoveTargetType), childXe.Value)) {
-                                    curMoveTargetType = childXe.Value;
+                                if (System.Enum.IsDefined(typeof(MoveTargetType), childXe.Value.ToUpper())) {
+                                    curMoveTargetType = childXe.Value.ToUpper();
                                 } else {
                                     Debug.Log("The value " + childXe.Value + " is not an accepted Target Type , it must be all caps, and a type defined in the enum MoveTargetType");
                                     curMoveEnum = "";
@@ -730,7 +747,7 @@ public class CompileXMLFiles : MonoBehaviour {
                 MoveManager.loadDataFile();
                 //MoveManager.printEachMoveName();
             } else {
-                Debug.Log("You have 0 moves successfully defined, please check Types.xml to remedy this");
+                Debug.Log("You have 0 moves successfully defined, please check Moves.xml to remedy this");
             }
 
         }
@@ -764,6 +781,7 @@ public class CompileXMLFiles : MonoBehaviour {
             //write enum file first, so we can use it for validation of other elements
             try {
                 XDocument reader = XDocument.Load("Assets/Resources/XML/Items.xml");
+                reader.StripNamespace();
 
                 //read each ability
                 foreach (XElement xe in reader.Descendants("Items")) {
@@ -805,6 +823,7 @@ public class CompileXMLFiles : MonoBehaviour {
 
             try {
                 XDocument reader = XDocument.Load("Assets/Resources/XML/Items.xml");
+                reader.StripNamespace();
 
                 //add each type to TypeManager
                 foreach (XElement xe in reader.Descendants("Item")) {
@@ -1016,6 +1035,217 @@ public class CompileXMLFiles : MonoBehaviour {
     }
 
 
+    public static void compilePokemon() {
 
+        //textwriter, for writing to TypesEnum.cs
+        using (TextWriter pokemonEnumTW = File.CreateText("Assets/Resources/XML/PokemonEnum.cs")) {
+            //write the basics to the enum file
+            pokemonEnumTW.WriteLine("using UnityEngine;");
+            pokemonEnumTW.WriteLine();
+            pokemonEnumTW.WriteLine("public enum PBPokemon {");
+
+
+            string curMonEnum = "";
+            string curMonName = "";
+            string curMonType1 = "";
+            string curMonType2 = "";
+            int[] curMonBaseStats = { 0, 0, 0, 0, 0, 0 };
+            string curGenderRate = "";
+            string curGrowthRate = "";
+            int curBaseExp = 0;
+            int[] curEffortPoints = { 0, 0, 0, 0, 0, 0 };
+            int curRareness = 0;
+            int curBaseHappiness = 0;
+            Dictionary<string, int> curLevelUpMoves = new Dictionary<string, int>();
+            List<string> curLearnableTMS = new List<string>();
+            List<string> curLearnableHMS = new List<string>();
+            List<string> curMoveTutorMoves = new List<string>();
+            List<string> curEggMoves = new List<string>();
+            string curEggType1 = "";
+            string curEggType2 = "";
+            int curStepsToHatch = 0;
+            float curHeight = 0.0f; //in meters
+            float curWeight = 0.0f; //in kilograms
+            string curColor = "";
+            string curKind = "";
+            Dictionary<string, string> curDexEntry = new Dictionary<string, string>();
+            List<string> curNaturalAbilities = new List<string>();
+            List<string> curHiddenAbilities = new List<string>();
+            string curHabitat = "";
+            Dictionary<string, int> curDexNumbers = new Dictionary<string, int>();  //First dex number will be national
+            string curWildItemCommon = "";
+            string curWildItemUncommon = "";
+            string curWildItemRare = "";
+            int curBattlePlayerYPos = 0;
+            int curBattleEnemyYPos = 0;
+            int curBattlerAltitude = 0;
+            List<EvolutionInfo> curEvolutions = new List<EvolutionInfo>();
+            List<string> curFormNames = new List<string>();
+            string curIncenseType = "";
+
+            bool skipMon;
+
+
+            //write enum file first, so we can use it for validation of other elements
+            try {
+                XDocument reader = XDocument.Load("Assets/Resources/XML/Pokemon.xml");
+                reader.StripNamespace();
+
+                //read each ability
+                foreach (XElement xe in reader.Descendants("Types")) {
+                    foreach (XElement childXE in xe.Elements("Type")) {
+                        //write previously found ability because the last Pokémon found shouldn't have a comma after it
+                        if (!curMonEnum.Equals("")) {
+                            pokemonEnumTW.WriteLine("\t{0}\t,", curMonEnum);
+                            pokemonNameList.Add(curMonEnum);
+                        }
+                        curMonEnum = "";
+                        if (xe.Element("Type") != null) {
+                            curMonEnum = childXE.Element("InternalName").Value;
+                            if (!System.Text.RegularExpressions.Regex.IsMatch(curMonEnum, "^[A-Z]*$")) {
+                                Debug.Log("Invalid InternalName of " + curMonEnum + " must be all caps (Example: PIKACHU), and be all alphabetical characters.  Pokemon skipped.");
+                                curMonEnum = "";
+                            }
+                        }
+                    }
+                }
+                //try to ensure (as best as possible) that there are no compilation errors in PokemonEnum.cs
+                //so when we fix our Pokemon.xml, we can just compile compile it right away
+                if (!curMonEnum.Equals("")) {
+                    pokemonEnumTW.WriteLine("\t{0}\t", curMonEnum);
+                    pokemonNameList.Add(curMonEnum);
+                }
+            } catch {
+                if (!curMonEnum.Equals("")) {
+                    pokemonEnumTW.WriteLine("\tBADVALUE\t");
+                }
+            }
+            pokemonEnumTW.WriteLine("}");
+            pokemonEnumTW.Close();
+
+            //clear the types list
+            TypeManager.clearList();
+
+            //Count total number of Pokémon, use for national dex number
+            int monCount = 1;
+
+            try {
+                XDocument reader = XDocument.Load("Assets/Resources/XML/Pokemon.xml");
+                reader.StripNamespace();
+
+                //add each type to TypeManager
+                foreach (XElement xe in reader.Descendants("Pokemon")) {
+                    curMonEnum = "";
+                    curMonName = "";
+                    curMonType1 = "";
+                    curMonType2 = "";
+                    curMonBaseStats = new int[] {0, 0, 0, 0, 0, 0 };
+                    curGenderRate = "";
+                    curGrowthRate = "";
+                    curBaseExp = 0;
+                    curEffortPoints = new int[] { 0, 0, 0, 0, 0, 0 };
+                    curRareness = 0;
+                    curBaseHappiness = 0;
+                    curLevelUpMoves.Clear();
+                    curLearnableTMS.Clear();
+                    curLearnableHMS.Clear();
+                    curMoveTutorMoves.Clear();
+                    curEggMoves.Clear();
+                    curEggType1 = "";
+                    curEggType2 = "";
+                    curStepsToHatch = 0;
+                    curHeight = 0.0f; //in meters
+                    curWeight = 0.0f; //in kilograms
+                    curColor = "";
+                    curKind = "";
+                    curDexEntry.Clear();
+                    curNaturalAbilities.Clear();
+                    curHiddenAbilities.Clear();
+                    curHabitat = "";
+                    curDexNumbers.Clear();  //First dex number will be national
+                    curWildItemCommon = "";
+                    curWildItemUncommon = "";
+                    curWildItemRare = "";
+                    curBattlePlayerYPos = 0;
+                    curBattleEnemyYPos = 0;
+                    curBattlerAltitude = 0;
+                    curEvolutions.Clear();
+                    curFormNames.Clear();
+                    curIncenseType = "";
+
+                    skipMon = false;
+
+                    //read each element for the Pokémon
+                    foreach (XElement childXe in xe.Elements()) {
+                        switch (childXe.Name.ToString()) {
+                            case "InternalName":
+                                curMonEnum = childXe.Value;
+                                //check validity of the Internal Name
+                                //must be uppercase, and no non-alphanumeric characters
+                                if (!System.Text.RegularExpressions.Regex.IsMatch(curMonEnum, "^[A-Z]*$")) {
+                                    curMonEnum = "";
+                                }
+                                break;
+                            case "Name":
+                                curMonName = childXe.Value;
+                                break;
+                            case "Type":  //use for both types
+                                if (typeNameList.Contains(childXe.Value.ToUpper())) {
+                                    curMonType1 = childXe.Value.ToUpper();
+                                    curMonType2 = childXe.Value.ToUpper();
+                                } else {
+                                    skipMon = true;
+                                    Debug.Log("The value " + childXe.Value.ToString() + " is not accepted for Type , it must be all caps, and a type defined in Types.xml");
+                                }
+                                break;
+                            case "Type1":
+                                if (typeNameList.Contains(childXe.Value.ToUpper())) {
+                                    curMonType1 = childXe.Value.ToUpper();
+                                } else {
+                                    skipMon = true;
+                                    Debug.Log("The value " + childXe.Value.ToString() + " is not accepted for Type1 , it must be all caps, and a type defined in Types.xml");
+                                }
+                                break;
+                            case "Type2":
+                                if (typeNameList.Contains(childXe.Value.ToUpper())) {
+                                    curMonType2 = childXe.Value.ToUpper();
+                                } else {
+                                    skipMon = true;
+                                    Debug.Log("The value " + childXe.Value.ToString() + " is not accepted for Type1 , it must be all caps, and a type defined in Types.xml");
+                                }
+                                break;
+                            default:
+                                Debug.Log("Invalid elecment " + childXe.Name + " for pokemon " + xe.Value + ".  Document compiled, but element is not included");
+                                break;
+                        }
+                    }
+                    //invalidate Pokémon if not containing all required elements
+                    if (curMonName.Equals("")) {
+                        Debug.Log("Pokémon " + curMonEnum + "is missing a 'Name' field.  Pokémon skipped");
+                        curMonEnum = "";
+                    }
+                    //add the found Pokémon to PokemonManager, so it can save it.  don't add if invalid
+                    if (!curMonEnum.Equals("")) {
+                        //TypeManager.addType(curTypeEnum, curTypeName, curIsSpecial, curWeaknesses, curResistances, curImmunities);
+                    }
+                }
+
+            } catch {
+
+            }
+
+
+            /*save all data writen to file, the load it back
+            if (TypeManager.getNumTypes() > 0) {
+                TypeManager.saveDataFile();
+                TypeManager.loadDataFile();
+                //TypeManager.printEachTypeName();
+            } else {
+                Debug.Log("You have 0 types successfully defined, please check Types.xml to remedy this");
+            }
+            */
+
+        }
+    }
 
 }

@@ -53,6 +53,7 @@ public class AbilityManager : MonoBehaviour {
           newAbilityList.Add(new Ability(tempInternalName, tempName, tempDesc));
         }
         binaryFormatter.Serialize(stream, newAbilityList);
+        stream.Close();
     }
   }
 
@@ -64,6 +65,7 @@ public class AbilityManager : MonoBehaviour {
         var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
         abilityList.Clear();
         tempAbilityList = (List<Ability>)binaryFormatter.Deserialize(stream);
+        stream.Close();
     }
 
     string tempInternalName;

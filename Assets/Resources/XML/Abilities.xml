@@ -1,21 +1,1149 @@
-<Abilities>
+<Abilities xmlns="http://tempuri.org/XMLSchema.xsd:Abilities">
 
   <Ability>
     <InternalName>STENCH</InternalName>
     <Name>Stench</Name>
-    <Description>The stench may cause the target to flinch</Description>
+    <Description>The stench may cause the target to flinch.</Description>
   </Ability>
 
   <Ability>
     <InternalName>DRIZZLE</InternalName>
     <Name>Drizzle</Name>
-    <Description>The Pokémon makes it rain if it appears in battle</Description>
+    <Description>The Pokémon makes it rain if it appears in battle.</Description>
   </Ability>
 
   <Ability>
-    <InternalName>DROUGHT</InternalName>
-    <Name>Drought</Name>
-    <Description>The Pokémon makes it rain if it appears in battle</Description>
+    <InternalName>SPEEDBOOST</InternalName>
+    <Name>Speed Boost</Name>
+    <Description>Its Speed stat is gradually boosted.</Description>
   </Ability>
 
+  <Ability>
+    <InternalName>BATTLEARMOR</InternalName>
+    <Name>Battle Armor</Name>
+    <Description>The Pokémon is protected against critical hits.</Description>
+  </Ability>
+
+  <Ability>
+    <InternalName>STURDY</InternalName>
+    <Name>Sturdy</Name>
+    <Description>It cannot be knocked out with one hit.</Description>
+  </Ability>
+
+  <Ability>
+    <InternalName>DAMP</InternalName>
+    <Name>Damp</Name>
+    <Description>Prevents the use of self-destructing moves.</Description>
+  </Ability>
+
+  <Ability>
+    <InternalName>LIMBER</InternalName>
+    <Name>Limber</Name>
+    <Description>The Pokémon is protected from paralysis.</Description>
+  </Ability>
+
+  <Ability>
+    <InternalName>SANDVEIL</InternalName>
+    <Name>Sandveil</Name>
+    <Description>Boosts the Pokémon's evasion in a sandstorm.</Description>
+  </Ability>
+
+  <Ability>
+    <InternalName>STATIC</InternalName>
+    <Name>Static</Name>
+    <Description>Contact with the Pokémon may cause paralysis.</Description>
+  </Ability>
+
+  <Ability>
+    <InternalName>VOLTABSORB</InternalName>
+    <Name>Volt Absorb</Name>
+    <Description>Restores HP if hit by an Electric-type move.</Description>
+  </Ability>
+
+  <Ability>
+    <InternalName>WATERABSORB</InternalName>
+    <Name>Water Absorb</Name>
+    <Description>Restores HP if hit by a Water-type move.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>OBLIVIOUS</InternalName>
+	<Name>Oblivious</Name>
+	<Description>Prevents it from becoming infatuated.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>CLOUDNINE</InternalName>
+	<Name>Cloud Nine</Name>
+	<Description>Eliminates the effects of weather.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>COMPOUNDEYES</InternalName>
+	<Name>Compound Eyes</Name>
+	<Description>The Pokémon's accuracy is boosted.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>INSOMNIA</InternalName>
+	<Name>Insomnia</Name>
+	<Description>Prevent's the Pokémon from falling asleep.</Description>
+  </Ability>
+
+  <Ability>
+	<InternalName>COLORCHANGE</InternalName>
+	<Name>Color Change</Name>
+	<Description>Changes the Pokémon's type to the foe's move.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>IMMUNITY</InternalName>
+	<Name>Immunity</Name>
+	<Description>Prevents the Pokémon from getting poisoned.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>FLASHFIRE</InternalName>
+	<Name>Flash Fire</Name>
+	<Description>Powers up Fire-Type moves if hit by one.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>SHIELDDUST</InternalName>
+	<Name>Shield Dust</Name>
+	<Description>Blocks the added effects of attacks taken.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>OWNTEMPO</InternalName>
+	<Name>Own Tempo</Name>
+	<Description>Prevents the Pokémon from becoming confused.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>SUCTIONCUPS</InternalName>
+	<Name>Suction Cups</Name>
+	<Description>Negates all moves that force switching out.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>INTIMIDATE</InternalName>
+	<Name>Intimidate</Name>
+	<Description>Lowers the foe's Attack stat.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>SHADOWTAG</InternalName>
+	<Name>Shadow Tag</Name>
+	<Description>Prevents the foe from escaping.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>ROUGHSKIN</InternalName>
+	<Name>Rough Skin</Name>
+	<Description>Inflicts damage on the foe on contact.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>WONDERGUARD</InternalName>
+	<Name>Wonder Guard</Name>
+	<Description>Only super-effective moves will hit.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>LEVITATE</InternalName>
+	<Name>Levitate</Name>
+	<Description>Gives full immunity to all Ground-Type moves.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>EFFECTSPORE</InternalName>
+	<Name>Effect Spore</Name>
+	<Description>Contact may poison or cause paralysis or sleep.</Description>
+  </Ability>
+
+  <Ability>
+	<InternalName>SYNCHRONIZE</InternalName>
+	<Name>Synchronize</Name>
+	<Description>Passes a burn, poison, or paralysis to the foe.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>CLEARBODY</InternalName>
+	<Name>Clear Body</Name>
+	<Description>Prevents other Pokémon from lowering its stats.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>NATURALCURE</InternalName>
+	<Name>Natural Cure</Name>
+	<Description>All status problems heal when it switches out.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>LIGHTNINGROD</InternalName>
+	<Name>Lightning Rod</Name>
+	<Description>Draws in all Electric-type moves to up Sp. Attack.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>SERENEGRACE</InternalName>
+	<Name>Serene Grace</Name>
+	<Description>Boosts the liklihood of added effects appearing.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>SWIFTSWIM</InternalName>
+	<Name>Swift Swim</Name>
+	<Description>Boosts the Pokémon's Speed in rain."</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>CHLOROPHYLL</InternalName>
+	<Name>Chlorophyll</Name>
+	<Description>Boosts the Pokémon's Speed in sunlight.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>ILLUMINATE</InternalName>
+	<Name>Illuminate</Name>
+	<Description>Raises the liklihood of meeting wild Pokémon.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>TRACE</InternalName>
+	<Name>Trace</Name>
+	<Description>The Pokémon copies a foe's ability.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>HUGEPOWER</InternalName>
+	<Name>Huge Power</Name>
+	<Description>Raises the Pokémon's Attack stat.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>POISONPOINT</InternalName>
+	<Name>Poison Point</Name>
+	<Description>Contact with the Pokémon may poison the attacker.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>INNERFOCUS</InternalName>
+	<Name>Inner Focus</Name>
+	<Description>The Pokémon is protected from flinching.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>MAGMAARMOR</InternalName>
+	<Name>Magma Armor</Name>
+	<Description>Prevents the Pokémon from becoming frozen.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>WATERVEIL</InternalName>
+	<Name>Water Veil</Name>
+	<Description>Prevents the Pokémon from getting a burn.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>MAGNETPULL</InternalName>
+	<Name>Magnet Pull</Name>
+	<Description>Prevents Steel-type Pokémon from escaping.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>SOUNDPROOF</InternalName>
+	<Name>Soundproof</Name>
+	<Description>Gives full immunity to sound-based moves.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>RAINDISH</InternalName>
+	<Name>Rain Dish</Name>
+	<Description>The Pokémon gradually regains HP in rain.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>SANDSTREAM</InternalName>
+	<Name>Sand Stream</Name>
+	<Description>The Pokémon summons a sandstorm in battle.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>PRESSURE</InternalName>
+	<Name>Pressure</Name>
+	<Description>The Pokémon raises the foe's PP usage.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>THICKFAT</InternalName>
+	<Name>Thick Fat</Name>
+	<Description>Ups resistance to Fire-type and Ice-type moves.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>EARLYBIRD</InternalName>
+	<Name>Early Bird</Name>
+	<Description>The Pokémon awakens quickly from sleep.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>FLAMEBODY</InternalName>
+	<Name>Flame Body</Name>
+	<Description>Contact with the Pokémon may burn the attacker.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>RUNAWAY</InternalName>
+	<Name>Run Away</Name>
+	<Description>Enables a sure getaway from wild Pokémon.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>KEENEYE</InternalName>
+	<Name>Keen Eye</Name>
+	<Description>Prevents other Pokémon from lowering accuracy.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>HYPERCUTTER</InternalName>
+	<Name>Hyper Cutter</Name>
+	<Description>Prevents other Pokémon from lowering Attack stat.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>PICKUP</InternalName>
+	<Name>Pick Up</Name>
+	<Description>The Pokémon may pick up items.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>TRUANT</InternalName>
+	<Name>Truant</Name>
+	<Description>The Pokémon can't attack on consecutive turns.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>HUSTLE</InternalName>
+	<Name>Hustle</Name>
+	<Description>Boosts the Attack stat, but loweres accuracy.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>CUTECHARM</InternalName>
+	<Name>Cute Charm</Name>
+	<Description>Contact with the Pokémon may cause infatuation.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>PLUS</InternalName>
+	<Name>Plus</Name>
+	<Description>Ups Sp. Atk if another Pokémon has Plus or Minus.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>MINUS</InternalName>
+	<Name>Minus</Name>
+	<Description>Ups Sp. Atk if another Pokémon has Plus or Minus.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>FORECAST</InternalName>
+	<Name>Forecast</Name>
+	<Description>Castform transforms with the weather.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>STICKYHOLD</InternalName>
+	<Name>Sticky Hold</Name>
+	<Description>Protects the Pokémon from item theft.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>SHEDSKIN</InternalName>
+	<Name>Shed Skin</Name>
+	<Description>The Pokémon may heal its own status problems.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>GUTS</InternalName>
+	<Name>Guts</Name>
+	<Description>Boosts Attack if there is a status problem.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>MARVELSCALE</InternalName>
+	<Name>Marvel Scale</Name>
+	<Description>Ups Defense if there is a status problem.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>LIQUIDOOZE</InternalName>
+	<Name>Liquid Ooze</Name>
+	<Description>Damages Attackers using any draining move.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>OVERGROW</InternalName>
+	<Name>Overgrow</Name>
+	<Description>Boosts Grass-type moves in a pinch.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>BLAZE</InternalName>
+	<Name>Blaze</Name>
+	<Description>Boosts Fire-type moves in a pinch.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>TORRENT</InternalName>
+	<Name>Torrent</Name>
+	<Description>Boosts Water-type moves in a pinch.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>SWARM</InternalName>
+	<Name>Swarm</Name>
+	<Description>Boosts Bug-type moves in a pinch.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>ROCKHEAD</InternalName>
+	<Name>Rock Head</Name>
+	<Description>Protects the Pokémon from recoil damage.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>DROUGHT</InternalName>
+	<Name>Drought</Name>
+	<Description>Turns the sunlight harsh in battle.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>ARENATRAP</InternalName>
+	<Name>Arena Trap</Name>
+	<Description>Prevents the for from fleeing</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>VITALSPIRIT</InternalName>
+	<Name>Vital Spirit</Name>
+	<Description>Prevents the Pokémon from falling asleep.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>WHITESMOKE</InternalName>
+	<Name>White Smoke</Name>
+	<Description>Prevents other Pokémon from lowering its stats.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>PUREPOWER</InternalName>
+	<Name>Pure Power</Name>
+	<Description>Raises the Pokémon's Attack stat.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>SHELLARMMOR</InternalName>
+	<Name>Shell Armor</Name>
+	<Description>The Pokémon is protected against critical hits.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>AIRLOCK</InternalName>
+	<Name>Air Lock</Name>
+	<Description>Elimates the effects of weather.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>TANGLEDFEET</InternalName>
+	<Name>Tangled Feet</Name>
+	<Description>Raises evasion if the Pokémon is confused.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>MOTORDRIVE</InternalName>
+	<Name>Motor Drive</Name>
+	<Description>Raises Speed if hit with an Electric-type attack.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>RIVALRY</InternalName>
+	<Name>Rivalry</Name>
+	<Description>Deals more damage to a foe of the same gender.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>STEADFAST</InternalName>
+	<Name>Steadfast</Name>
+	<Description>Raises Speed each time the Pokémon flinches.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>SNOWCLOAK</InternalName>
+	<Name>Snow Cloak</Name>
+	<Description>Raises evasion in a hailstorm.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>GLUTTONY</InternalName>
+	<Name>Gluttony</Name>
+	<Description>Encourages the early use of a held Berry.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>ANGERPOINT</InternalName>
+	<Name>Anger Point</Name>
+	<Description>Maxes Attack after taking a critical hit.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>UNBURDEN</InternalName>
+	<Name>Unburden</Name>
+	<Description>Raises Speed if a held item is used.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>HEATPROOF</InternalName>
+	<Name>Heatproof</Name>
+	<Description>Weakens the power of Fire-type moves.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>SIMPLE</InternalName>
+	<Name>Simple</Name>
+	<Description>The Pokémon is prone to wild stat changes.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>DRYSKIN</InternalName>
+	<Name>Dry Skin</Name>
+	<Description>Reduces HP if it is hot. Water restores HP.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>DOWNLOAD</InternalName>
+	<Name>Download</Name>
+	<Description>Adjusts power according to a foe's defenses.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>IRONFIST</InternalName>
+	<Name>Iron Fist</Name>
+	<Description>Boosts the power of punching moves.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>POISONHEAL</InternalName>
+	<Name>Poison Heal</Name>
+	<Description>Restores HP if poisoned.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>ADAPTABILITY</InternalName>
+	<Name>Adaptability</Name>
+	<Description>Powers up moves of the same type.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>SKILLLINK</InternalName>
+	<Name>Skill Link</Name>
+	<Description>Increases the frequency of multi-strike moves.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>HYDRATION</InternalName>
+	<Name>Hydration</Name>
+	<Description>Heals status problems if it is raining.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>SOLARPOWER</InternalName>
+	<Name>Solar Power</Name>
+	<Description>In sunlight, Sp. Atk is boosted but HP decreases."\</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>QUICKFEET</InternalName>
+	<Name>Quick Feet</Name>
+	<Description>Boosts Speed if there is a status problem.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>NORMALIZE</InternalName>
+	<Name>Normalize</Name>
+	<Description>All the Pokémon's moves become the Normal type.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>SNIPER</InternalName>
+	<Name>Sniper</Name>
+	<Description>Powers up moves if they become critical hits.</Description>
+  </Ability>
+	
+  <Ability>
+	<InternalName>MAGICGUARD</InternalName>
+	<Name>Magic Guard</Name>
+	<Description>The Pokémon only takes damage from attacks.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>NOGUARD</InternalName>
+	<Name>No Guard</Name>
+	<Description>Ensures that attacks by and against the Pokémon land.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>STALL</InternalName>
+	<Name>Stall</Name>
+	<Description>The Pokémon moves after all other Pokémon do.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>TECHNICIAN</InternalName>
+	<Name>Technician</Name>
+	<Description>Powers up the Pokémon's weaker moves.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>LEAFGUARD</InternalName>
+	<Name>Leaf Guard</Name>
+	<Description>Prevents problems with status in sunny weather.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>KLUTZ</InternalName>
+	<Name>Klutz</Name>
+	<Description>The Pokémon can't use any held items.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>MOLDBREAKER</InternalName>
+	<Name>Mold Breaker</Name>
+	<Description>Moves can be used regardless of abilities.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>SUPERLUCK</InternalName>
+	<Name>Super Luck</Name>
+	<Description>Heightens the critical-hit ratios of moves.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>AFTERMATH</InternalName>
+	<Name>Aftermath</Name>
+	<Description>Damages the attacker landing the finishing hit.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>ANTICIPATION</InternalName>
+	<Name>Anticipation</Name>
+	<Description>Senses a foe's dangerous move.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>FOREWARN</InternalName>
+	<Name>Forewarn</Name>
+	<Description>Determines what moves a foe has.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>UNAWARE</InternalName>
+	<Name>Unaware</Name>
+	<Description>Ignores any stat changes in the foe.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>TINTEDLENS</InternalName>
+	<Name>Tinted Lens</Name>
+	<Description>Powers up "not very effective" moves.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>FILTER</InternalName>
+	<Name>Filter</Name>
+	<Description>Reduces damage from super-effective attacks.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>SLOWSTART</InternalName>
+	<Name>Slow Start</Name>
+	<Description>Temporarily halves Attack and Speed.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>SCRAPPY</InternalName>
+	<Name>Scrappy</Name>
+	<Description>Enables moves to hit Ghost-type Pokémon.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>STORMDRAIN</InternalName>
+	<Name>Storm Drain</Name>
+	<Description>Draws in all Water-type moves to up Sp. Attack.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>ICEBODY</InternalName>
+	<Name>Ice Body</Name>
+	<Description>The Pokémon gradually regains HP in a hailstorm.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>SOLIDROCK</InternalName>
+	<Name>Solid Rock</Name>
+	<Description>Reduces damage from super-effective attacks.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>SNOWWARNING</InternalName>
+	<Name>Snow Warning</Name>
+	<Description>The Pokémon summons a hailstorm in battle.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>HONEYGATHER</InternalName>
+	<Name>Honey Gather</Name>
+	<Description>The Pokémon may gather Honey from somewhere.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>FRISK</InternalName>
+	<Name>Frisk</Name>
+	<Description>The Pokémon checks the foe's held item.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>RECKLESS</InternalName>
+	<Name>Reckless</Name>
+	<Description>Powers up moves that have recoil damage.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>MULTITYPE</InternalName>
+	<Name>Multitype</Name>
+	<Description>Changes type to match the held Plate.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>FLOWERGIFT</InternalName>
+	<Name>Flower Gift</Name>
+	<Description>Powers up the party Pokémon when in sunlight.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>BADDREAMS</InternalName>
+	<Name>Bad Dreams</Name>
+	<Description>Reduces a sleeping foe's HP.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>PICKPOCKET</InternalName>
+	<Name>Pickpocket</Name>
+	<Description>Steals an item when hit by another Pokémon.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>SHEERFORCE</InternalName>
+	<Name>Sheer Force</Name>
+	<Description>Removes added effects to increase move damage.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>CONTRARY</InternalName>
+	<Name>Contrary</Name>
+	<Description>Makes stat changes have an opposite effect.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>UNNERVE</InternalName>
+	<Name>Unnerve</Name>
+	<Description>Makes the foe nervous and unable to eat berries.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>DEFIANT</InternalName>
+	<Name>Defiant</Name>
+	<Description>When its stats are lowered its Attack increases.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>DEFEATIST</InternalName>
+	<Name>Defeatist</Name>
+	<Description>Lowers stats when HP becomes half or less.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>CURSEDBODY</InternalName>
+	<Name>Cursed Body</Name>
+	<Description>May disable a move used on the Pokémon.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>HEALER</InternalName>
+	<Name>Healer</Name>
+	<Description>May heal an ally's status condition.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>FRIENDGUARD</InternalName>
+	<Name>Friend Guard</Name>
+	<Description>Reduces damage done to allies.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>WEAKARMOR</InternalName>
+	<Name>Weak Armor</Name>
+	<Description>Physical attacks lower defense and raise Speed.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>HEAVYMETAL</InternalName>
+	<Name>Heavy Metal</Name>
+	<Description>Doubles the Pokémon's weight.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>LIGHTMETAL</InternalName>
+	<Name>Light Metal</Name>
+	<Description>Halves the Pokémon's weight.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>MULTISCALE</InternalName>
+	<Name>Multiscale</Name>
+	<Description>Reduces damage when HP is full.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>TOXICBOOST</InternalName>
+	<Name>Toxic Boost</Name>
+	<Description>Powers up physical attacks when poisoned.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>FLAREBOOST</InternalName>
+	<Name>Flare Boost</Name>
+	<Description>Powers up special attacks when burned.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>HARVEST</InternalName>
+	<Name>Harvest</Name>
+	<Description>May create another Berry after one is used.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>TELEPATHY</InternalName>
+	<Name>Telepathy</Name>
+	<Description>Anticipates an ally's attack and dodges it.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>MOODY</InternalName>
+	<Name>Moody</Name>
+	<Description>Raises one stat and lowers another.</Description>
+  </Ability>
+
+  <Ability>
+	<InternalName>OVERCOAT</InternalName>
+	<Name>Overcoat</Name>
+	<Description>Protects the Pokémon from damage from weather.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>POISONTOUCH</InternalName>
+	<Name>Poison Touch</Name>
+	<Description>May poison targets when a Pokémon makes contact.</Description>
+  </Ability>
+
+  <Ability>
+	<InternalName>REGENERATOR</InternalName>
+	<Name>Regenerator</Name>
+	<Description>Restores a little HP when withdrawn from battle.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>BIGPECKS</InternalName>
+	<Name>Big Pecks</Name>
+	<Description>Protects from Defense-lowering attacks.</Description>
+  </Ability>
+
+  <Ability>
+	<InternalName>SANDRUSH</InternalName>
+	<Name>Sand Rush</Name>
+	<Description>Boosts a Pokémon's Speed in a sandstorm.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>WONDERSKIN</InternalName>
+	<Name>Wonder Skin</Name>
+	<Description>Makes status-changing moves more likely to miss.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>ANALYTIC</InternalName>
+	<Name>Analytic</Name>
+	<Description>Boosts move power when the Pokémon moves last.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>ILLUSION</InternalName>
+	<Name>Illusion</Name>
+	<Description>Comes out disguised as the Pokémon in back.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>IMPOSTER</InternalName>
+	<Name>Imposter</Name>
+	<Description>It transforms itself into the Pokémon it is facing.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>INFILTRATOR</InternalName>
+	<Name>Infiltrator</Name>
+	<Description>Passes through the foe's barrier and strikes.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>MUMMY</InternalName>
+	<Name>Mummy</Name>
+	<Description>Contact with this Pokémon spreads this ability.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>MOXIE</InternalName>
+	<Name>Moxie</Name>
+	<Description>Boosts Attack after knocking out any Pokémon.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>JUSTIFIED</InternalName>
+	<Name>Justified</Name>
+	<Description>Raises Attack when hit by a Dark-type move.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>RATTLED</InternalName>
+	<Name>Rattled</Name>
+	<Description>Some move types scare it and boosts its speed.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>MAGICBOUNCE</InternalName>
+	<Name>Magic Bounce</Name>
+	<Description>Reflects status-changing moves.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>SAPSIPPER</InternalName>
+	<Name>Sap Sipper</Name>
+	<Description>Boosts Attack when hit by a Grass-type move.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>PRANKSTER</InternalName>
+	<Name>Prankster</Name>
+	<Description>Gives priority to a status move.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>SANDFORCE</InternalName>
+	<Name>Sand Force</Name>
+	<Description>Boost certain moves' power in a sandstorm.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>IRONBARBS</InternalName>
+	<Name>Iron Barbs</Name>
+	<Description>Inflicts damage to the Pokémon on contact.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>ZENMODE</InternalName>
+	<Name>Zen Mode</Name>
+	<Description>Changes the Pokémon's shape when HP is halved.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>VICTORYSTAR</InternalName>
+	<Name>Victory Star</Name>
+	<Description>Boosts the accuracy of its allies and itself.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>TURBOBLAZE</InternalName>
+	<Name>Turboblaze</Name>
+	<Description>Moves can be used regardless of abilities.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>TERAVOLT</InternalName>
+	<Name>Teravolt</Name>
+	<Description>Moves can be used regardless of abilities.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>AERILATE</InternalName>
+	<Name>Aerilate</Name>
+	<Description>Normal-type move become Flying-type moves.</Description>
+  </Ability>
+
+  <Ability>
+	<InternalName>AROMAVEIL</InternalName>
+	<Name>Aroma Veil</Name>
+	<Description>Protects allies from attacks that effect their mental state.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>AURABREAK</InternalName>
+	<Name>Aura Break</Name>
+	<Description>The effect of Aura Abilities are reversed.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>BULLETPROOF</InternalName>
+	<Name>Bulletproof</Name>
+	<Description>Protects the Pokémon from some ball and bomb moves.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>CHEEKPOUCH</InternalName>
+	<Name>Cheek Pouch</Name>
+	<Description>Restores all HP when the Pokémon eats a Berry.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>COMPETITIVE</InternalName>
+	<Name>Competitive</Name>
+	<Description>Boosts the Sp. Atk stat when a stat is lowered.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>DARKAURA</InternalName>
+	<Name>Dark Aura</Name>
+	<Description>Powers up each Pokémon's Dark-type moves.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>FAIRYAURA</InternalName>
+	<Name>Fairy Aura</Name>
+	<Description>Powers up each Pokémon's Fairy-type moves.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>FLOWERVEIL</InternalName>
+	<Name>Flower Veil</Name>
+	<Description>Prevents lowere of ally Grass-type Pokémon stats.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>FURCOAT</InternalName>
+	<Name>Fur Coat</Name>
+	<Description>Halves damage from physical moves.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>GALEWINGS</InternalName>
+	<Name>Gale Wings</Name>
+	<Description>Gives priority to Flying-type moves.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>GOOEY</InternalName>
+	<Name>Gooey</Name>
+	<Description>Contact with the Pokémon lowers the attacker's Speed stat.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>GRASSPELT</InternalName>
+	<Name>Grass Pelt</Name>
+	<Description>Boosts the Defense stat when the terrain is grass.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>MAGICIAN</InternalName>
+	<Name>Magician</Name>
+	<Description>The Pokémon steals the held item of a Pokémon if it hits with a move.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>MEGALAUNCHER</InternalName>
+	<Name>Mega Launcher</Name>
+	<Description>Powers up Aura and Pulse moves.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>PARENTALBOND</InternalName>
+	<Name>Parental Bond</Name>
+	<Description>Parent and child attack together.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>PIXILATE</InternalName>
+	<Name>Pixilate</Name>
+	<Description>Normal-type moves become Fairy-type.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>PROTEAN</InternalName>
+	<Name>Protean</Name>
+	<Description>Chages the Pokémon's type to the type of the move it just used.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>REFRIGERATE</InternalName>
+	<Name>Refrigerate</Name>
+	<Description>Normal-type moves become Ice-type.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>STANCECHANGE</InternalName>
+	<Name>Stance Change</Name>
+	<Description>The Pokémon changes form depending on how it battles.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>STRONGJAW</InternalName>
+	<Name>Strong Jaw</Name>
+	<Description>The Pokémon's strong jaw gives it tremendous biting power.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>SWEETVEIL</InternalName>
+	<Name>Sweet Veil</Name>
+	<Description>Prevents ally Pokémon from falling asleep.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>SYMBIOSIS</InternalName>
+	<Name>Symbiosis</Name>
+	<Description>The Pokémon can pass an item to an ally.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>TOUGHCLAWS</InternalName>
+	<Name>Tough Claws</Name>
+	<Description>Powers up moves that make direct contact.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>DELTASTREAM</InternalName>
+	<Name>Delta Stream</Name>
+	<Description>Affects weather and eliminates all of the Flying-type's weaknesses.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>PRIMORDIALSEA</InternalName>
+	<Name>Primordial Sea</Name>
+	<Description>Affects weather and nullifies any Fire-type attacks.</Description>
+  </Ability>
+  
+  <Ability>
+	<InternalName>DESOLATELAND</InternalName>
+	<Name>Desolate Land</Name>
+	<Description>Affects weather and nullifies any Water-type attacks.</Description>
+  </Ability>
+  
 </Abilities>

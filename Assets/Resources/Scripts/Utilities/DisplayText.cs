@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class DisplayText : MonoBehaviour {
 
-	float letterPause = 0.02f;
+	float letterPauseTime = 0.02f;
 	string words = "";
 	private int curChar = 0;
 	private string currentSentence = "";
@@ -39,7 +39,7 @@ public class DisplayText : MonoBehaviour {
 		}
 
 		positionTextBox();
-		InvokeRepeating ("updateText", 0, letterPause);
+		InvokeRepeating ("updateText", 0, letterPauseTime);
 	}
 
 	//Positioning is different depending on screen size, reposition when drawn

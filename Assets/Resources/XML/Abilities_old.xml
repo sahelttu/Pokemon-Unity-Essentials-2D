@@ -1,0 +1,71 @@
+<Abilities xmlns="http://tempuri.org/XMLSchema.xsd:Abilities">
+
+  <Ability>
+    <InternalName>STENCH</InternalName>
+    <Name>Stench</Name>
+    <Description>The stench may cause the target to flinch.</Description>
+  </Ability>
+
+  <Ability>
+    <InternalName>DRIZZLE</InternalName>
+    <Name>Drizzle</Name>
+    <Description>The Pokémon makes it rain if it appears in battle.</Description>
+  </Ability>
+
+  <Ability>
+    <InternalName>SPEEDBOOST</InternalName>
+    <Name>Speed Boost</Name>
+    <Description>Its Speed stat is gradually boosted.</Description>
+  </Ability>
+
+  <Ability>
+    <InternalName>BATTLEARMOR</InternalName>
+    <Name>Battle Armor</Name>
+    <Description>The Pokémon is protected against critical hits.</Description>
+  </Ability>
+
+  <Ability>
+    <InternalName>STURDY</InternalName>
+    <Name>Sturdy</Name>
+    <Description>It cannot be knocked out with one hit.</Description>
+  </Ability>
+
+  <Ability>
+    <InternalName>DAMP</InternalName>
+    <Name>Damp</Name>
+    <Description>Prevents the use of self-destructing moves.</Description>
+  </Ability>
+
+  <Ability>
+    <InternalName>LIMBER</InternalName>
+    <Name>Limber</Name>
+    <Description>The Pokemon is protected from paralysis.</Description>
+  </Ability>
+
+  <Ability>
+    <InternalName>SANDVEIL</InternalName>
+    <Name>Sandveil</Name>
+    <Description>Boosts the Pokemon's evasion in a sandstorm.</Description>
+  </Ability>
+
+  <Ability>
+    <InternalName>STATIC</InternalName>
+    <Name>Static</Name>
+    <Description>Contact with the Pokemon may cause paralysis.</Description>
+  </Ability>
+
+  <Ability>
+    <InternalName>VOLTABSORB</InternalName>
+    <Name>Volt Absorb</Name>
+    <Description>Restores HP if hit by an Electric-type move.</Description>
+  </Ability>
+
+  <Ability>
+    <InternalName>WATERABSORB</InternalName>
+    <Name>Water Absorb</Name>
+    <Description>Restores HP if hit by a Water-type move.</Description>
+  </Ability>
+  
+
+</Abilities>
+
