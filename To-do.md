@@ -22,7 +22,8 @@ Subject to likely change the way things are handled
   - [ ] Player Movement (basic movement)
     - [x] Grid based movement (movement distance near perfect.  Do more testing when more maps are added to check)
     - [x] Walking
-    - [ ] Running
+    - [x] Running
+      - [ ] Running Toggle
     - [ ] Surfing
     - [ ] Bike
     - [ ] Jumping
@@ -57,7 +58,7 @@ Subject to likely change the way things are handled
     - [ ]  Encounters (a "map" will have it's own encounters, but individual tile layers will also have encounters that can override the maps, if desired)
     - [ ] Sloped Maps
 
-  - [ ] Automatically add Metadata script when importing map from Tiled (might have done this, can't remember)
+  - [x] Automatically add Metadata script when importing map from Tiled (might have done this, can't remember)
   - [ ] Editors for the XML files
 
 * Compiler(XML files, enums mentioned aren't compiled, but compilers will rely on them)
@@ -66,10 +67,10 @@ Subject to likely change the way things are handled
   - [x] Items
   - [x] Moves
   - [ ] Pokemon 
-    - [ ] Evolution Types (enum)
-    - [ ] Colors (enum)
-    - [ ] Breeding Groups (enum)
-    - [ ] Exp Gain (enum)
+    - [x] Evolution Types (enum)
+    - [x] Colors (enum)
+    - [x] Breeding Groups (enum)
+    - [x] Exp Gain (enum)
     - [ ] Shiny sprites will use a color pallete swap, defined in the XML
   - [ ] Trainers
 
